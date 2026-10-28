@@ -1,12 +1,12 @@
 [project]
 name = "countrycodes-cli"
-version = "0.1.0rc1"
+version = "0.1.0rc2"
 description = "Command-line interface for the countrycodes library"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "BSD-3-Clause"
 license-files = ["LICENSE"]
-dependencies = ["countrycodes==0.1.0rc1", "rich>=13.7.1", "typer>=0.24.1"]
+dependencies = ["countrycodes==0.1.0rc2", "rich>=13.7.1", "typer>=0.24.1"]
 
 [project.scripts]
 countrycodes = "countrycodes_cli.cli:app"

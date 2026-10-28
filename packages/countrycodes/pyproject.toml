@@ -1,6 +1,6 @@
 [project]
 name = "countrycodes"
-version = "0.1.0rc1"
+version = "0.1.0rc2"
 description = "A dependency-free ISO 3166-1 country code lookup library"
 readme = "README.md"
 requires-python = ">=3.11"
