@@ -1,6 +1,6 @@
 [project]
 name = "countrycodes-workspace"
-version = "0.0.0"
+version = "0.1.0rc1"
 description = "Workspace for the countrycodes library and CLI"
 requires-python = ">=3.11"
 dependencies = []
