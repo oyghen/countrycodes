@@ -1,0 +1,66 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    name: Publish library and CLI app to PyPI
+    runs-on: ubuntu-latest
+
+    environment:
+      name: pypi
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Install Python
+        run: uv python install
+
+      - name: Sync workspace
+        run: uv sync --locked --all-packages --all-extras
+
+      - name: Run tests
+        run: uv run --no-sync pytest --verbose
+
+      - name: Build all packages
+        run: uv build --no-sources --all-packages
+
+      - name: Smoke test (wheel)
+        run: |
+          set -euo pipefail
+
+          uv run --isolated --no-project \
+            --with dist/countrycodes-*.whl \
+            packages/countrycodes/tests/smoke_test_lib.py
+
+          uv run --isolated --no-project \
+            --with dist/countrycodes-*.whl \
+            --with dist/countrycodes_cli-*.whl \
+            packages/countrycodes-cli/tests/smoke_test_cli.py
+
+      - name: Smoke test (source distribution)
+        run: |
+          set -euo pipefail
+
+          uv run --isolated --no-project \
+            --with dist/countrycodes-*.tar.gz \
+            packages/countrycodes/tests/smoke_test_lib.py
+
+          uv run --isolated --no-project \
+            --with dist/countrycodes-*.tar.gz \
+            --with dist/countrycodes_cli-*.tar.gz \
+            packages/countrycodes-cli/tests/smoke_test_cli.py
+
+      - name: Publish all packages
+        run: uv publish

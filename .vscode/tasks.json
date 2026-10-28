@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "pre-commit all",
+            "type": "shell",
+            "command": "uv run pre-commit run --all-files",
+            "problemMatcher": []
+        },
+        {
+            "label": "pytest",
+            "type": "shell",
+            "command": "uv",
+            "args": [
+                "run",
+                "--no-sync",
+                "pytest",
+                "--verbose",
+                "--doctest-modules",
+                "--ignore=user",
+                "--ignore=version.py"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "CountryCodes: Checks",
+            "dependsOn": [
+                "pre-commit all",
+                "pytest"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": []
+        }
+    ]
+}
