@@ -36,7 +36,7 @@ class Country:
 
 
 def list_countries() -> tuple[Country, ...]:
-    """Return all countries and territories, sorted by display name."""
+    """Return all countries and territories, sorted by alpha-2 code."""
     countries, _ = _registry()
     return countries
 
@@ -74,7 +74,7 @@ def _registry() -> tuple[tuple[Country, ...], dict[str, tuple[Country, ...]]]:
     with data_file.open(encoding="utf-8") as file:
         records: list[dict[str, Any]] = json.load(file)
     countries = tuple(Country(**record) for record in records)
-    countries = tuple(sorted(countries, key=lambda country: country.name.casefold()))
+    countries = tuple(sorted(countries, key=lambda country: country.alpha2))
 
     index: dict[str, list[Country]] = defaultdict(list)
     for country in countries:
