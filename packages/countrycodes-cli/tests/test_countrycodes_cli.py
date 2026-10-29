@@ -58,6 +58,13 @@ def test_lookup_command_prints_text() -> None:
     assert "United Kingdom" in result.stdout
 
 
+def test_lookup_command_accepts_fuzzy_country_name() -> None:
+    result = runner.invoke(app, ["lookup", "Untied States"])
+
+    assert result.exit_code == 0
+    assert "United States" in result.stdout
+
+
 def test_lookup_command_accepts_dial_code() -> None:
     result = runner.invoke(app, ["lookup", "+1"])
 

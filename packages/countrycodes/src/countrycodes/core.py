@@ -12,6 +12,7 @@ __all__ = (
 import json
 from collections import defaultdict
 from dataclasses import dataclass
+from difflib import SequenceMatcher
 from functools import cache
 from importlib.resources import files
 from typing import Any
@@ -46,14 +47,17 @@ def find_country(query: str) -> Country | None:
 
     Queries match ISO alpha-2, alpha-3, and numeric codes, dial codes, and
     common, official, and short country names. Matching ignores case and
-    surrounding or repeated whitespace.
+    surrounding or repeated whitespace. If there is no exact match, a
+    sufficiently similar country name is matched instead.
     """
-    _, index = _registry()
+    countries, index = _registry()
     matches = index.get(_normalize(query), ())
     unique_matches = tuple(dict.fromkeys(matches))
     if len(unique_matches) > 1:
         raise ValueError(f"Country query is ambiguous: {query!r}")
-    return unique_matches[0] if unique_matches else None
+    if unique_matches:
+        return unique_matches[0]
+    return _find_fuzzy_country(query, countries)
 
 
 def get_country(query: str) -> Country:
@@ -66,6 +70,34 @@ def get_country(query: str) -> Country:
 
 def _normalize(value: str) -> str:
     return " ".join(value.casefold().split())
+
+
+def _find_fuzzy_country(query: str, countries: tuple[Country, ...]) -> Country | None:
+    normalized_query = _normalize(query)
+    if not normalized_query:
+        return None
+
+    best_score = 0.8
+    best_matches: set[Country] = set()
+    for country in countries:
+        names = (country.name, country.official_name, country.common_name)
+        score = max(
+            (
+                SequenceMatcher(None, normalized_query, _normalize(name)).ratio()
+                for name in names
+                if name is not None
+            ),
+            default=0.0,
+        )
+        if score > best_score:
+            best_score = score
+            best_matches = {country}
+        elif score == best_score:
+            best_matches.add(country)
+
+    if len(best_matches) > 1:
+        raise ValueError(f"Country query is ambiguous: {query!r}")
+    return next(iter(best_matches), None)
 
 
 @cache
