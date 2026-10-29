@@ -24,21 +24,21 @@ Requires Python 3.11 or newer.
 ## Usage
 
 ```python
-from countrycodes import CountryNotFoundError, find_country, get_country, list_countries
+import countrycodes as cc
 
-united_states = get_country("us")
+united_states = cc.get_country("us")
 print(united_states.alpha3)  # USA
 print(united_states.numeric)  # 840
 print(united_states.dial_code)  # +1
 
-united_kingdom = find_country("United Kingdom")
+united_kingdom = cc.find_country("United Kingdom")
 print(united_kingdom.alpha2)  # GB
 
-print(len(list_countries()))  # 249
+print(len(cc.list_countries()))  # 249
 
 try:
-    get_country("Atlantis")
-except CountryNotFoundError:
+    cc.get_country("Atlantis")
+except cc.CountryNotFoundError:
     print("No matching country")
 ```
 
