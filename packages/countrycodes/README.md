@@ -34,6 +34,9 @@ print(united_states.dial_code)  # +1
 united_kingdom = cc.find_country("United Kingdom")
 print(united_kingdom.alpha2)  # GB
 
+typo_tolerant_match = cc.find_country("Untied States")
+print(typo_tolerant_match.alpha2)  # US
+
 print(len(cc.list_countries()))  # 249
 
 try:
