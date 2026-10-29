@@ -72,7 +72,7 @@ def test_lookup_command_accepts_dial_code() -> None:
         columns[1].strip()
         for line in result.stdout.splitlines()
         if line.startswith("│")
-        if (columns := line.split("│"))[1].strip()
+        if (columns := line.split("│"))[1].strip() not in {"", "Alpha-2"}
     }
     assert displayed_alpha2 == {country.alpha2 for country in matching_countries}
 
