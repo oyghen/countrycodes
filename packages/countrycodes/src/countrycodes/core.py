@@ -44,9 +44,9 @@ def list_countries() -> tuple[Country, ...]:
 def find_country(query: str) -> Country | None:
     """Return the matching country, or ``None`` if the query is not found.
 
-    Queries match ISO alpha-2, alpha-3, and numeric codes, as well as common,
-    official, and short country names. Matching ignores case and surrounding
-    or repeated whitespace.
+    Queries match ISO alpha-2, alpha-3, and numeric codes, dial codes, and
+    common, official, and short country names. Matching ignores case and
+    surrounding or repeated whitespace.
     """
     _, index = _registry()
     matches = index.get(_normalize(query), ())
@@ -82,6 +82,7 @@ def _registry() -> tuple[tuple[Country, ...], dict[str, tuple[Country, ...]]]:
             country.alpha2,
             country.alpha3,
             country.numeric,
+            country.dial_code,
             country.name,
             country.official_name,
             country.common_name,

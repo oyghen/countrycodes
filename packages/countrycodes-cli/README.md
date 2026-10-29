@@ -35,6 +35,7 @@ Look up a country by code or name:
 ```console
 countrycodes lookup US
 countrycodes lookup "United Kingdom"
+countrycodes lookup +1
 ```
 
 Lookups are displayed as a table by default. Choose JSON output or list all
@@ -46,8 +47,10 @@ countrycodes list
 countrycodes list --format json
 ```
 
-The default list is rendered as a table sorted by alpha-2 code, with a row
-number. JSON output remains an unnumbered array of country records.
+Dial-code lookups display every country or territory sharing that code. In
+JSON, dial-code lookups return an array; lookups by country name or ISO code
+return a single record. The default list is rendered as a table sorted by
+alpha-2 code, with a row number, and JSON list output is an unnumbered array.
 Country records include the international dial code when available.
 
 See all options with:

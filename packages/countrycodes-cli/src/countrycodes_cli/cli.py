@@ -30,21 +30,38 @@ def main(
 
 @app.command()
 def lookup(
-    query: Annotated[str, typer.Argument(help="Country name or ISO code.")],
+    query: Annotated[str, typer.Argument(help="Country name, ISO code, or dial code.")],
     output_format: Annotated[
         Literal["text", "json"],
         typer.Option("--format", help="Output format."),
     ] = "text",
 ) -> None:
-    """Look up a country by name or ISO code."""
-    try:
-        country = cc.get_country(query)
-    except cc.CountryNotFoundError as error:
-        typer.echo(str(error), err=True)
-        raise typer.Exit(1) from error
+    """Look up a country by name, ISO code, or dial code."""
+    countries = (
+        tuple(
+            country
+            for country in cc.list_countries()
+            if country.dial_code == query.strip()
+        )
+        if query.strip().startswith("+")
+        else ()
+    )
+    is_dial_code_lookup = bool(countries)
+
+    if not countries:
+        try:
+            countries = (cc.get_country(query),)
+        except cc.CountryNotFoundError as error:
+            typer.echo(str(error), err=True)
+            raise typer.Exit(1) from error
 
     if output_format == "json":
-        typer.echo(json.dumps(asdict(country), ensure_ascii=False))
+        result = (
+            [asdict(country) for country in countries]
+            if is_dial_code_lookup
+            else asdict(countries[0])
+        )
+        typer.echo(json.dumps(result, ensure_ascii=False))
     else:
         table = Table(
             "Alpha-2",
@@ -55,14 +72,15 @@ def lookup(
             "Country",
             show_lines=False,
         )
-        table.add_row(
-            country.alpha2,
-            country.alpha3,
-            country.numeric,
-            country.dial_code or "",
-            country.continent,
-            country.name,
-        )
+        for country in countries:
+            table.add_row(
+                country.alpha2,
+                country.alpha3,
+                country.numeric,
+                country.dial_code or "",
+                country.continent,
+                country.name,
+            )
         Console().print(table)
 
 

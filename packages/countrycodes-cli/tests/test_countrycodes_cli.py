@@ -58,6 +58,47 @@ def test_lookup_command_prints_text() -> None:
     assert "United Kingdom" in result.stdout
 
 
+def test_lookup_command_accepts_dial_code() -> None:
+    result = runner.invoke(app, ["lookup", "+1"])
+
+    assert result.exit_code == 0
+    matching_countries = [
+        country
+        for country in countrycodes.list_countries()
+        if country.dial_code == "+1"
+    ]
+    assert len(matching_countries) > 1
+    displayed_alpha2 = {
+        columns[1].strip()
+        for line in result.stdout.splitlines()
+        if line.startswith("│")
+        if (columns := line.split("│"))[1].strip()
+    }
+    assert displayed_alpha2 == {country.alpha2 for country in matching_countries}
+
+
+def test_lookup_command_returns_all_dial_code_matches_as_json() -> None:
+    result = runner.invoke(app, ["lookup", "+1", "--format", "json"])
+
+    assert result.exit_code == 0
+    countries = json.loads(result.stdout)
+    assert len(countries) > 1
+    assert {country["dial_code"] for country in countries} == {"+1"}
+    assert {country["alpha2"] for country in countries} == {
+        country.alpha2
+        for country in countrycodes.list_countries()
+        if country.dial_code == "+1"
+    }
+
+
+def test_lookup_command_accepts_unique_dial_code() -> None:
+    result = runner.invoke(app, ["lookup", "+81"])
+
+    assert result.exit_code == 0
+    assert "Japan" in result.stdout
+    assert "+81" in result.stdout
+
+
 def test_lookup_command_prints_json() -> None:
     result = runner.invoke(app, ["lookup", "JP", "--format", "json"])
 

@@ -37,6 +37,7 @@ def test_lookup_by_each_code_format() -> None:
     assert get_country(" 840 ") == expected
     assert get_country("GB").continent == "Europe"
     assert get_country("GB").dial_code == "+44"
+    assert get_country("+46").alpha2 == "SE"
     assert get_country("JP").continent == "Asia"
     assert get_country("AQ").continent == "Antarctica"
     assert get_country("AQ").dial_code is None
