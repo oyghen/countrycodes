@@ -48,6 +48,13 @@ def test_lookup_by_name_and_whitespace() -> None:
     assert get_country("United States of America").alpha2 == "US"
 
 
+def test_lookup_by_fuzzy_country_name() -> None:
+    assert get_country("Untied States").alpha2 == "US"
+    fuzzy_match = find_country("Untied States")
+    assert fuzzy_match is not None
+    assert fuzzy_match.alpha2 == "US"
+
+
 def test_find_country_returns_none_for_unknown_query() -> None:
     assert find_country("Atlantis") is None
 
