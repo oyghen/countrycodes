@@ -10,8 +10,8 @@
 </div>
 
 `countrycodes` is a dependency-free Python library for looking up all 249
-ISO 3166-1 countries and territories, including a continent assignment for
-each.
+ISO 3166-1 countries and territories, including continent assignments and
+international dial codes where available.
 
 ## Installation
 
@@ -29,6 +29,7 @@ from countrycodes import CountryNotFoundError, find_country, get_country, list_c
 united_states = get_country("us")
 print(united_states.alpha3)  # USA
 print(united_states.numeric)  # 840
+print(united_states.dial_code)  # +1
 
 united_kingdom = find_country("United Kingdom")
 print(united_kingdom.alpha2)  # GB
@@ -44,7 +45,8 @@ except CountryNotFoundError:
 Lookups accept alpha-2, alpha-3, and numeric codes, as well as country names.
 Matching is case-insensitive and ignores surrounding or repeated whitespace.
 `find_country` returns `None` when there is no match; `get_country` raises
-`CountryNotFoundError`.
+`CountryNotFoundError`. `dial_code` is the international country calling code,
+not a local area code, and is `None` when no code is available.
 
 ## Data and licenses
 
@@ -53,7 +55,8 @@ The bundled country registry is an adapted subset of ISO 3166-1 data from the
 Continent assignments are from [GeoNames](https://www.geonames.org/), using
 GeoNames' single-continent mapping for each country or territory. The
 registry data is licensed under LGPL-2.1-or-later, continent assignments under
-CC BY 4.0, and the library code under BSD 3-Clause. See the
+CC BY 4.0, and dial codes are derived from GeoNames countryInfo.txt, also
+under CC BY 4.0. The library code is under BSD 3-Clause. See the
 [data notice](https://github.com/oyghen/countrycodes/blob/main/packages/countrycodes/LICENSES/iso-codes.NOTICE),
 [LGPL license text](https://github.com/oyghen/countrycodes/blob/main/packages/countrycodes/LICENSES/iso-codes.LGPL-2.1.txt),
 and [BSD license](https://github.com/oyghen/countrycodes/blob/main/packages/countrycodes/LICENSE).

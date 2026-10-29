@@ -4,7 +4,8 @@ CountryCodes is a Python workspace with two separately published packages for
 ISO 3166-1 country and territory lookups:
 
 - [`countrycodes`](packages/countrycodes/README.md): dependency-free lookup
-  library with the bundled registry.
+  library with the bundled registry, continent assignments, and international
+  dial codes.
 - [`countrycodes-cli`](packages/countrycodes-cli/README.md): command-line
   interface built on the library.
 

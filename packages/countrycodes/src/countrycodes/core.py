@@ -23,7 +23,7 @@ class CountryNotFoundError(LookupError):
 
 @dataclass(frozen=True, slots=True)
 class Country:
-    """An ISO 3166-1 country or territory with a continent assignment."""
+    """An ISO 3166-1 country or territory with geographic and dialing data."""
 
     alpha2: str
     alpha3: str
@@ -32,6 +32,7 @@ class Country:
     name: str
     official_name: str | None = None
     common_name: str | None = None
+    dial_code: str | None = None
 
 
 def list_countries() -> tuple[Country, ...]:

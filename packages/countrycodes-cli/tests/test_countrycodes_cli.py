@@ -47,11 +47,13 @@ def test_lookup_command_prints_text() -> None:
     assert "Alpha-2" in result.stdout
     assert "Alpha-3" in result.stdout
     assert "Numeric" in result.stdout
+    assert "Dial Code" in result.stdout
     assert "Continent" in result.stdout
     assert "Country" in result.stdout
     assert "GB" in result.stdout
     assert "GBR" in result.stdout
     assert "826" in result.stdout
+    assert "+44" in result.stdout
     assert "Europe" in result.stdout
     assert "United Kingdom" in result.stdout
 
@@ -65,6 +67,7 @@ def test_lookup_command_prints_json() -> None:
     assert country["alpha2"] == "JP"
     assert country["alpha3"] == "JPN"
     assert country["numeric"] == "392"
+    assert country["dial_code"] == "+81"
     assert country["continent"] == "Asia"
 
 
@@ -103,6 +106,7 @@ def test_list_text_is_alpha2_sorted_and_numbered() -> None:
     assert "Alpha-2" in result.stdout
     assert "Alpha-3" in result.stdout
     assert "Numeric" in result.stdout
+    assert "Dial Code" in result.stdout
     assert "Continent" in result.stdout
     assert "Country" in result.stdout
     assert "Europe" in result.stdout

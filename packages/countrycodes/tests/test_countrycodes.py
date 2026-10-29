@@ -29,14 +29,17 @@ def test_lookup_by_each_code_format() -> None:
         continent="North America",
         name="United States",
         official_name="United States of America",
+        dial_code="+1",
     )
 
     assert get_country("US") == expected
     assert get_country("usa") == expected
     assert get_country(" 840 ") == expected
     assert get_country("GB").continent == "Europe"
+    assert get_country("GB").dial_code == "+44"
     assert get_country("JP").continent == "Asia"
     assert get_country("AQ").continent == "Antarctica"
+    assert get_country("AQ").dial_code is None
 
 
 def test_lookup_by_name_and_whitespace() -> None:
@@ -70,3 +73,7 @@ def test_list_countries_returns_complete_sorted_registry() -> None:
         sorted(country.name.casefold() for country in countries)
     )
     assert len({country.alpha2 for country in countries}) == 249
+    assert all(
+        country.dial_code is None or country.dial_code.startswith("+")
+        for country in countries
+    )

@@ -50,6 +50,7 @@ def lookup(
             "Alpha-2",
             "Alpha-3",
             "Numeric",
+            "Dial Code",
             "Continent",
             "Country",
             show_lines=False,
@@ -58,6 +59,7 @@ def lookup(
             country.alpha2,
             country.alpha3,
             country.numeric,
+            country.dial_code or "",
             country.continent,
             country.name,
         )
@@ -86,6 +88,7 @@ def list_countries(
             "Alpha-2",
             "Alpha-3",
             "Numeric",
+            "Dial Code",
             "Continent",
             "Country",
             show_lines=False,
@@ -96,6 +99,7 @@ def list_countries(
                 country.alpha2,
                 country.alpha3,
                 country.numeric,
+                country.dial_code or "",
                 country.continent,
                 country.name,
             )

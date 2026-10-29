@@ -6,7 +6,8 @@
     "continent": "North America",
     "name": "Aruba",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+297"
   },
   {
     "alpha2": "AF",
@@ -15,7 +16,8 @@
     "continent": "Asia",
     "name": "Afghanistan",
     "official_name": "Islamic Republic of Afghanistan",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+93"
   },
   {
     "alpha2": "AO",
@@ -24,7 +26,8 @@
     "continent": "Africa",
     "name": "Angola",
     "official_name": "Republic of Angola",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+244"
   },
   {
     "alpha2": "AI",
@@ -33,7 +36,8 @@
     "continent": "North America",
     "name": "Anguilla",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "AX",
@@ -42,7 +46,8 @@
     "continent": "Europe",
     "name": "Åland Islands",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+358"
   },
   {
     "alpha2": "AL",
@@ -51,7 +56,8 @@
     "continent": "Europe",
     "name": "Albania",
     "official_name": "Republic of Albania",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+355"
   },
   {
     "alpha2": "AD",
@@ -60,7 +66,8 @@
     "continent": "Europe",
     "name": "Andorra",
     "official_name": "Principality of Andorra",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+376"
   },
   {
     "alpha2": "AE",
@@ -69,7 +76,8 @@
     "continent": "Asia",
     "name": "United Arab Emirates",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+971"
   },
   {
     "alpha2": "AR",
@@ -78,7 +86,8 @@
     "continent": "South America",
     "name": "Argentina",
     "official_name": "Argentine Republic",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+54"
   },
   {
     "alpha2": "AM",
@@ -87,7 +96,8 @@
     "continent": "Asia",
     "name": "Armenia",
     "official_name": "Republic of Armenia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+374"
   },
   {
     "alpha2": "AS",
@@ -96,7 +106,8 @@
     "continent": "Oceania",
     "name": "American Samoa",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "AQ",
@@ -105,7 +116,8 @@
     "continent": "Antarctica",
     "name": "Antarctica",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": null
   },
   {
     "alpha2": "TF",
@@ -114,7 +126,8 @@
     "continent": "Antarctica",
     "name": "French Southern Territories",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": null
   },
   {
     "alpha2": "AG",
@@ -123,7 +136,8 @@
     "continent": "North America",
     "name": "Antigua and Barbuda",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "AU",
@@ -132,7 +146,8 @@
     "continent": "Oceania",
     "name": "Australia",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+61"
   },
   {
     "alpha2": "AT",
@@ -141,7 +156,8 @@
     "continent": "Europe",
     "name": "Austria",
     "official_name": "Republic of Austria",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+43"
   },
   {
     "alpha2": "AZ",
@@ -150,7 +166,8 @@
     "continent": "Asia",
     "name": "Azerbaijan",
     "official_name": "Republic of Azerbaijan",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+994"
   },
   {
     "alpha2": "BI",
@@ -159,7 +176,8 @@
     "continent": "Africa",
     "name": "Burundi",
     "official_name": "Republic of Burundi",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+257"
   },
   {
     "alpha2": "BE",
@@ -168,7 +186,8 @@
     "continent": "Europe",
     "name": "Belgium",
     "official_name": "Kingdom of Belgium",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+32"
   },
   {
     "alpha2": "BJ",
@@ -177,7 +196,8 @@
     "continent": "Africa",
     "name": "Benin",
     "official_name": "Republic of Benin",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+229"
   },
   {
     "alpha2": "BQ",
@@ -186,7 +206,8 @@
     "continent": "North America",
     "name": "Bonaire, Sint Eustatius and Saba",
     "official_name": "Bonaire, Sint Eustatius and Saba",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+599"
   },
   {
     "alpha2": "BF",
@@ -195,7 +216,8 @@
     "continent": "Africa",
     "name": "Burkina Faso",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+226"
   },
   {
     "alpha2": "BD",
@@ -204,7 +226,8 @@
     "continent": "Asia",
     "name": "Bangladesh",
     "official_name": "People's Republic of Bangladesh",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+880"
   },
   {
     "alpha2": "BG",
@@ -213,7 +236,8 @@
     "continent": "Europe",
     "name": "Bulgaria",
     "official_name": "Republic of Bulgaria",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+359"
   },
   {
     "alpha2": "BH",
@@ -222,7 +246,8 @@
     "continent": "Asia",
     "name": "Bahrain",
     "official_name": "Kingdom of Bahrain",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+973"
   },
   {
     "alpha2": "BS",
@@ -231,7 +256,8 @@
     "continent": "North America",
     "name": "Bahamas",
     "official_name": "Commonwealth of the Bahamas",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "BA",
@@ -240,7 +266,8 @@
     "continent": "Europe",
     "name": "Bosnia and Herzegovina",
     "official_name": "Republic of Bosnia and Herzegovina",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+387"
   },
   {
     "alpha2": "BL",
@@ -249,7 +276,8 @@
     "continent": "North America",
     "name": "Saint Barthélemy",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+590"
   },
   {
     "alpha2": "BY",
@@ -258,7 +286,8 @@
     "continent": "Europe",
     "name": "Belarus",
     "official_name": "Republic of Belarus",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+375"
   },
   {
     "alpha2": "BZ",
@@ -267,7 +296,8 @@
     "continent": "North America",
     "name": "Belize",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+501"
   },
   {
     "alpha2": "BM",
@@ -276,7 +306,8 @@
     "continent": "North America",
     "name": "Bermuda",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "BO",
@@ -285,7 +316,8 @@
     "continent": "South America",
     "name": "Bolivia, Plurinational State of",
     "official_name": "Plurinational State of Bolivia",
-    "common_name": "Bolivia"
+    "common_name": "Bolivia",
+    "dial_code": "+591"
   },
   {
     "alpha2": "BR",
@@ -294,7 +326,8 @@
     "continent": "South America",
     "name": "Brazil",
     "official_name": "Federative Republic of Brazil",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+55"
   },
   {
     "alpha2": "BB",
@@ -303,7 +336,8 @@
     "continent": "North America",
     "name": "Barbados",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "BN",
@@ -312,7 +346,8 @@
     "continent": "Asia",
     "name": "Brunei Darussalam",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+673"
   },
   {
     "alpha2": "BT",
@@ -321,7 +356,8 @@
     "continent": "Asia",
     "name": "Bhutan",
     "official_name": "Kingdom of Bhutan",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+975"
   },
   {
     "alpha2": "BV",
@@ -330,7 +366,8 @@
     "continent": "Antarctica",
     "name": "Bouvet Island",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": null
   },
   {
     "alpha2": "BW",
@@ -339,7 +376,8 @@
     "continent": "Africa",
     "name": "Botswana",
     "official_name": "Republic of Botswana",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+267"
   },
   {
     "alpha2": "CF",
@@ -348,7 +386,8 @@
     "continent": "Africa",
     "name": "Central African Republic",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+236"
   },
   {
     "alpha2": "CA",
@@ -357,7 +396,8 @@
     "continent": "North America",
     "name": "Canada",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "CC",
@@ -366,7 +406,8 @@
     "continent": "Asia",
     "name": "Cocos (Keeling) Islands",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+61"
   },
   {
     "alpha2": "CH",
@@ -375,7 +416,8 @@
     "continent": "Europe",
     "name": "Switzerland",
     "official_name": "Swiss Confederation",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+41"
   },
   {
     "alpha2": "CL",
@@ -384,7 +426,8 @@
     "continent": "South America",
     "name": "Chile",
     "official_name": "Republic of Chile",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+56"
   },
   {
     "alpha2": "CN",
@@ -393,7 +436,8 @@
     "continent": "Asia",
     "name": "China",
     "official_name": "People's Republic of China",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+86"
   },
   {
     "alpha2": "CI",
@@ -402,7 +446,8 @@
     "continent": "Africa",
     "name": "Côte d'Ivoire",
     "official_name": "Republic of Côte d'Ivoire",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+225"
   },
   {
     "alpha2": "CM",
@@ -411,7 +456,8 @@
     "continent": "Africa",
     "name": "Cameroon",
     "official_name": "Republic of Cameroon",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+237"
   },
   {
     "alpha2": "CD",
@@ -420,7 +466,8 @@
     "continent": "Africa",
     "name": "Congo, The Democratic Republic of the",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+243"
   },
   {
     "alpha2": "CG",
@@ -429,7 +476,8 @@
     "continent": "Africa",
     "name": "Congo",
     "official_name": "Republic of the Congo",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+242"
   },
   {
     "alpha2": "CK",
@@ -438,7 +486,8 @@
     "continent": "Oceania",
     "name": "Cook Islands",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+682"
   },
   {
     "alpha2": "CO",
@@ -447,7 +496,8 @@
     "continent": "South America",
     "name": "Colombia",
     "official_name": "Republic of Colombia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+57"
   },
   {
     "alpha2": "KM",
@@ -456,7 +506,8 @@
     "continent": "Africa",
     "name": "Comoros",
     "official_name": "Union of the Comoros",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+269"
   },
   {
     "alpha2": "CV",
@@ -465,7 +516,8 @@
     "continent": "Africa",
     "name": "Cabo Verde",
     "official_name": "Republic of Cabo Verde",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+238"
   },
   {
     "alpha2": "CR",
@@ -474,7 +526,8 @@
     "continent": "North America",
     "name": "Costa Rica",
     "official_name": "Republic of Costa Rica",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+506"
   },
   {
     "alpha2": "CU",
@@ -483,7 +536,8 @@
     "continent": "North America",
     "name": "Cuba",
     "official_name": "Republic of Cuba",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+53"
   },
   {
     "alpha2": "CW",
@@ -492,7 +546,8 @@
     "continent": "North America",
     "name": "Curaçao",
     "official_name": "Curaçao",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+599"
   },
   {
     "alpha2": "CX",
@@ -501,7 +556,8 @@
     "continent": "Oceania",
     "name": "Christmas Island",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+61"
   },
   {
     "alpha2": "KY",
@@ -510,7 +566,8 @@
     "continent": "North America",
     "name": "Cayman Islands",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "CY",
@@ -519,7 +576,8 @@
     "continent": "Europe",
     "name": "Cyprus",
     "official_name": "Republic of Cyprus",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+357"
   },
   {
     "alpha2": "CZ",
@@ -528,7 +586,8 @@
     "continent": "Europe",
     "name": "Czechia",
     "official_name": "Czech Republic",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+420"
   },
   {
     "alpha2": "DE",
@@ -537,7 +596,8 @@
     "continent": "Europe",
     "name": "Germany",
     "official_name": "Federal Republic of Germany",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+49"
   },
   {
     "alpha2": "DJ",
@@ -546,7 +606,8 @@
     "continent": "Africa",
     "name": "Djibouti",
     "official_name": "Republic of Djibouti",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+253"
   },
   {
     "alpha2": "DM",
@@ -555,7 +616,8 @@
     "continent": "North America",
     "name": "Dominica",
     "official_name": "Commonwealth of Dominica",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "DK",
@@ -564,7 +626,8 @@
     "continent": "Europe",
     "name": "Denmark",
     "official_name": "Kingdom of Denmark",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+45"
   },
   {
     "alpha2": "DO",
@@ -573,7 +636,8 @@
     "continent": "North America",
     "name": "Dominican Republic",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "DZ",
@@ -582,7 +646,8 @@
     "continent": "Africa",
     "name": "Algeria",
     "official_name": "People's Democratic Republic of Algeria",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+213"
   },
   {
     "alpha2": "EC",
@@ -591,7 +656,8 @@
     "continent": "South America",
     "name": "Ecuador",
     "official_name": "Republic of Ecuador",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+593"
   },
   {
     "alpha2": "EG",
@@ -600,7 +666,8 @@
     "continent": "Africa",
     "name": "Egypt",
     "official_name": "Arab Republic of Egypt",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+20"
   },
   {
     "alpha2": "ER",
@@ -609,7 +676,8 @@
     "continent": "Africa",
     "name": "Eritrea",
     "official_name": "the State of Eritrea",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+291"
   },
   {
     "alpha2": "EH",
@@ -618,7 +686,8 @@
     "continent": "Africa",
     "name": "Western Sahara",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+212"
   },
   {
     "alpha2": "ES",
@@ -627,7 +696,8 @@
     "continent": "Europe",
     "name": "Spain",
     "official_name": "Kingdom of Spain",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+34"
   },
   {
     "alpha2": "EE",
@@ -636,7 +706,8 @@
     "continent": "Europe",
     "name": "Estonia",
     "official_name": "Republic of Estonia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+372"
   },
   {
     "alpha2": "ET",
@@ -645,7 +716,8 @@
     "continent": "Africa",
     "name": "Ethiopia",
     "official_name": "Federal Democratic Republic of Ethiopia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+251"
   },
   {
     "alpha2": "FI",
@@ -654,7 +726,8 @@
     "continent": "Europe",
     "name": "Finland",
     "official_name": "Republic of Finland",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+358"
   },
   {
     "alpha2": "FJ",
@@ -663,7 +736,8 @@
     "continent": "Oceania",
     "name": "Fiji",
     "official_name": "Republic of Fiji",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+679"
   },
   {
     "alpha2": "FK",
@@ -672,7 +746,8 @@
     "continent": "South America",
     "name": "Falkland Islands (Malvinas)",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+500"
   },
   {
     "alpha2": "FR",
@@ -681,7 +756,8 @@
     "continent": "Europe",
     "name": "France",
     "official_name": "French Republic",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+33"
   },
   {
     "alpha2": "FO",
@@ -690,7 +766,8 @@
     "continent": "Europe",
     "name": "Faroe Islands",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+298"
   },
   {
     "alpha2": "FM",
@@ -699,7 +776,8 @@
     "continent": "Oceania",
     "name": "Micronesia, Federated States of",
     "official_name": "Federated States of Micronesia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+691"
   },
   {
     "alpha2": "GA",
@@ -708,7 +786,8 @@
     "continent": "Africa",
     "name": "Gabon",
     "official_name": "Gabonese Republic",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+241"
   },
   {
     "alpha2": "GB",
@@ -717,7 +796,8 @@
     "continent": "Europe",
     "name": "United Kingdom",
     "official_name": "United Kingdom of Great Britain and Northern Ireland",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+44"
   },
   {
     "alpha2": "GE",
@@ -726,7 +806,8 @@
     "continent": "Asia",
     "name": "Georgia",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+995"
   },
   {
     "alpha2": "GG",
@@ -735,7 +816,8 @@
     "continent": "Europe",
     "name": "Guernsey",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+44"
   },
   {
     "alpha2": "GH",
@@ -744,7 +826,8 @@
     "continent": "Africa",
     "name": "Ghana",
     "official_name": "Republic of Ghana",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+233"
   },
   {
     "alpha2": "GI",
@@ -753,7 +836,8 @@
     "continent": "Europe",
     "name": "Gibraltar",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+350"
   },
   {
     "alpha2": "GN",
@@ -762,7 +846,8 @@
     "continent": "Africa",
     "name": "Guinea",
     "official_name": "Republic of Guinea",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+224"
   },
   {
     "alpha2": "GP",
@@ -771,7 +856,8 @@
     "continent": "North America",
     "name": "Guadeloupe",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+590"
   },
   {
     "alpha2": "GM",
@@ -780,7 +866,8 @@
     "continent": "Africa",
     "name": "Gambia",
     "official_name": "Republic of the Gambia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+220"
   },
   {
     "alpha2": "GW",
@@ -789,7 +876,8 @@
     "continent": "Africa",
     "name": "Guinea-Bissau",
     "official_name": "Republic of Guinea-Bissau",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+245"
   },
   {
     "alpha2": "GQ",
@@ -798,7 +886,8 @@
     "continent": "Africa",
     "name": "Equatorial Guinea",
     "official_name": "Republic of Equatorial Guinea",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+240"
   },
   {
     "alpha2": "GR",
@@ -807,7 +896,8 @@
     "continent": "Europe",
     "name": "Greece",
     "official_name": "Hellenic Republic",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+30"
   },
   {
     "alpha2": "GD",
@@ -816,7 +906,8 @@
     "continent": "North America",
     "name": "Grenada",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "GL",
@@ -825,7 +916,8 @@
     "continent": "North America",
     "name": "Greenland",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+299"
   },
   {
     "alpha2": "GT",
@@ -834,7 +926,8 @@
     "continent": "North America",
     "name": "Guatemala",
     "official_name": "Republic of Guatemala",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+502"
   },
   {
     "alpha2": "GF",
@@ -843,7 +936,8 @@
     "continent": "South America",
     "name": "French Guiana",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+594"
   },
   {
     "alpha2": "GU",
@@ -852,7 +946,8 @@
     "continent": "Oceania",
     "name": "Guam",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "GY",
@@ -861,7 +956,8 @@
     "continent": "South America",
     "name": "Guyana",
     "official_name": "Republic of Guyana",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+592"
   },
   {
     "alpha2": "HK",
@@ -870,7 +966,8 @@
     "continent": "Asia",
     "name": "Hong Kong",
     "official_name": "Hong Kong Special Administrative Region of China",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+852"
   },
   {
     "alpha2": "HM",
@@ -879,7 +976,8 @@
     "continent": "Antarctica",
     "name": "Heard Island and McDonald Islands",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": null
   },
   {
     "alpha2": "HN",
@@ -888,7 +986,8 @@
     "continent": "North America",
     "name": "Honduras",
     "official_name": "Republic of Honduras",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+504"
   },
   {
     "alpha2": "HR",
@@ -897,7 +996,8 @@
     "continent": "Europe",
     "name": "Croatia",
     "official_name": "Republic of Croatia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+385"
   },
   {
     "alpha2": "HT",
@@ -906,7 +1006,8 @@
     "continent": "North America",
     "name": "Haiti",
     "official_name": "Republic of Haiti",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+509"
   },
   {
     "alpha2": "HU",
@@ -915,7 +1016,8 @@
     "continent": "Europe",
     "name": "Hungary",
     "official_name": "Hungary",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+36"
   },
   {
     "alpha2": "ID",
@@ -924,7 +1026,8 @@
     "continent": "Asia",
     "name": "Indonesia",
     "official_name": "Republic of Indonesia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+62"
   },
   {
     "alpha2": "IM",
@@ -933,7 +1036,8 @@
     "continent": "Europe",
     "name": "Isle of Man",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+44"
   },
   {
     "alpha2": "IN",
@@ -942,7 +1046,8 @@
     "continent": "Asia",
     "name": "India",
     "official_name": "Republic of India",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+91"
   },
   {
     "alpha2": "IO",
@@ -951,7 +1056,8 @@
     "continent": "Asia",
     "name": "British Indian Ocean Territory",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+246"
   },
   {
     "alpha2": "IE",
@@ -960,7 +1066,8 @@
     "continent": "Europe",
     "name": "Ireland",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+353"
   },
   {
     "alpha2": "IR",
@@ -969,7 +1076,8 @@
     "continent": "Asia",
     "name": "Iran, Islamic Republic of",
     "official_name": "Islamic Republic of Iran",
-    "common_name": "Iran"
+    "common_name": "Iran",
+    "dial_code": "+98"
   },
   {
     "alpha2": "IQ",
@@ -978,7 +1086,8 @@
     "continent": "Asia",
     "name": "Iraq",
     "official_name": "Republic of Iraq",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+964"
   },
   {
     "alpha2": "IS",
@@ -987,7 +1096,8 @@
     "continent": "Europe",
     "name": "Iceland",
     "official_name": "Republic of Iceland",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+354"
   },
   {
     "alpha2": "IL",
@@ -996,7 +1106,8 @@
     "continent": "Asia",
     "name": "Israel",
     "official_name": "State of Israel",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+972"
   },
   {
     "alpha2": "IT",
@@ -1005,7 +1116,8 @@
     "continent": "Europe",
     "name": "Italy",
     "official_name": "Italian Republic",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+39"
   },
   {
     "alpha2": "JM",
@@ -1014,7 +1126,8 @@
     "continent": "North America",
     "name": "Jamaica",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "JE",
@@ -1023,7 +1136,8 @@
     "continent": "Europe",
     "name": "Jersey",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+44"
   },
   {
     "alpha2": "JO",
@@ -1032,7 +1146,8 @@
     "continent": "Asia",
     "name": "Jordan",
     "official_name": "Hashemite Kingdom of Jordan",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+962"
   },
   {
     "alpha2": "JP",
@@ -1041,7 +1156,8 @@
     "continent": "Asia",
     "name": "Japan",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+81"
   },
   {
     "alpha2": "KZ",
@@ -1050,7 +1166,8 @@
     "continent": "Asia",
     "name": "Kazakhstan",
     "official_name": "Republic of Kazakhstan",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+7"
   },
   {
     "alpha2": "KE",
@@ -1059,7 +1176,8 @@
     "continent": "Africa",
     "name": "Kenya",
     "official_name": "Republic of Kenya",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+254"
   },
   {
     "alpha2": "KG",
@@ -1068,7 +1186,8 @@
     "continent": "Asia",
     "name": "Kyrgyzstan",
     "official_name": "Kyrgyz Republic",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+996"
   },
   {
     "alpha2": "KH",
@@ -1077,7 +1196,8 @@
     "continent": "Asia",
     "name": "Cambodia",
     "official_name": "Kingdom of Cambodia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+855"
   },
   {
     "alpha2": "KI",
@@ -1086,7 +1206,8 @@
     "continent": "Oceania",
     "name": "Kiribati",
     "official_name": "Republic of Kiribati",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+686"
   },
   {
     "alpha2": "KN",
@@ -1095,7 +1216,8 @@
     "continent": "North America",
     "name": "Saint Kitts and Nevis",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "KR",
@@ -1104,7 +1226,8 @@
     "continent": "Asia",
     "name": "Korea, Republic of",
     "official_name": null,
-    "common_name": "South Korea"
+    "common_name": "South Korea",
+    "dial_code": "+82"
   },
   {
     "alpha2": "KW",
@@ -1113,7 +1236,8 @@
     "continent": "Asia",
     "name": "Kuwait",
     "official_name": "State of Kuwait",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+965"
   },
   {
     "alpha2": "LA",
@@ -1122,7 +1246,8 @@
     "continent": "Asia",
     "name": "Lao People's Democratic Republic",
     "official_name": null,
-    "common_name": "Laos"
+    "common_name": "Laos",
+    "dial_code": "+856"
   },
   {
     "alpha2": "LB",
@@ -1131,7 +1256,8 @@
     "continent": "Asia",
     "name": "Lebanon",
     "official_name": "Lebanese Republic",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+961"
   },
   {
     "alpha2": "LR",
@@ -1140,7 +1266,8 @@
     "continent": "Africa",
     "name": "Liberia",
     "official_name": "Republic of Liberia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+231"
   },
   {
     "alpha2": "LY",
@@ -1149,7 +1276,8 @@
     "continent": "Africa",
     "name": "Libya",
     "official_name": "Libya",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+218"
   },
   {
     "alpha2": "LC",
@@ -1158,7 +1286,8 @@
     "continent": "North America",
     "name": "Saint Lucia",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "LI",
@@ -1167,7 +1296,8 @@
     "continent": "Europe",
     "name": "Liechtenstein",
     "official_name": "Principality of Liechtenstein",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+423"
   },
   {
     "alpha2": "LK",
@@ -1176,7 +1306,8 @@
     "continent": "Asia",
     "name": "Sri Lanka",
     "official_name": "Democratic Socialist Republic of Sri Lanka",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+94"
   },
   {
     "alpha2": "LS",
@@ -1185,7 +1316,8 @@
     "continent": "Africa",
     "name": "Lesotho",
     "official_name": "Kingdom of Lesotho",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+266"
   },
   {
     "alpha2": "LT",
@@ -1194,7 +1326,8 @@
     "continent": "Europe",
     "name": "Lithuania",
     "official_name": "Republic of Lithuania",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+370"
   },
   {
     "alpha2": "LU",
@@ -1203,7 +1336,8 @@
     "continent": "Europe",
     "name": "Luxembourg",
     "official_name": "Grand Duchy of Luxembourg",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+352"
   },
   {
     "alpha2": "LV",
@@ -1212,7 +1346,8 @@
     "continent": "Europe",
     "name": "Latvia",
     "official_name": "Republic of Latvia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+371"
   },
   {
     "alpha2": "MO",
@@ -1221,7 +1356,8 @@
     "continent": "Asia",
     "name": "Macao",
     "official_name": "Macao Special Administrative Region of China",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+853"
   },
   {
     "alpha2": "MF",
@@ -1230,7 +1366,8 @@
     "continent": "North America",
     "name": "Saint Martin (French part)",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+590"
   },
   {
     "alpha2": "MA",
@@ -1239,7 +1376,8 @@
     "continent": "Africa",
     "name": "Morocco",
     "official_name": "Kingdom of Morocco",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+212"
   },
   {
     "alpha2": "MC",
@@ -1248,7 +1386,8 @@
     "continent": "Europe",
     "name": "Monaco",
     "official_name": "Principality of Monaco",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+377"
   },
   {
     "alpha2": "MD",
@@ -1257,7 +1396,8 @@
     "continent": "Europe",
     "name": "Moldova, Republic of",
     "official_name": "Republic of Moldova",
-    "common_name": "Moldova"
+    "common_name": "Moldova",
+    "dial_code": "+373"
   },
   {
     "alpha2": "MG",
@@ -1266,7 +1406,8 @@
     "continent": "Africa",
     "name": "Madagascar",
     "official_name": "Republic of Madagascar",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+261"
   },
   {
     "alpha2": "MV",
@@ -1275,7 +1416,8 @@
     "continent": "Asia",
     "name": "Maldives",
     "official_name": "Republic of Maldives",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+960"
   },
   {
     "alpha2": "MX",
@@ -1284,7 +1426,8 @@
     "continent": "North America",
     "name": "Mexico",
     "official_name": "United Mexican States",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+52"
   },
   {
     "alpha2": "MH",
@@ -1293,7 +1436,8 @@
     "continent": "Oceania",
     "name": "Marshall Islands",
     "official_name": "Republic of the Marshall Islands",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+692"
   },
   {
     "alpha2": "MK",
@@ -1302,7 +1446,8 @@
     "continent": "Europe",
     "name": "North Macedonia",
     "official_name": "Republic of North Macedonia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+389"
   },
   {
     "alpha2": "ML",
@@ -1311,7 +1456,8 @@
     "continent": "Africa",
     "name": "Mali",
     "official_name": "Republic of Mali",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+223"
   },
   {
     "alpha2": "MT",
@@ -1320,7 +1466,8 @@
     "continent": "Europe",
     "name": "Malta",
     "official_name": "Republic of Malta",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+356"
   },
   {
     "alpha2": "MM",
@@ -1329,7 +1476,8 @@
     "continent": "Asia",
     "name": "Myanmar",
     "official_name": "Republic of Myanmar",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+95"
   },
   {
     "alpha2": "ME",
@@ -1338,7 +1486,8 @@
     "continent": "Europe",
     "name": "Montenegro",
     "official_name": "Montenegro",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+382"
   },
   {
     "alpha2": "MN",
@@ -1347,7 +1496,8 @@
     "continent": "Asia",
     "name": "Mongolia",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+976"
   },
   {
     "alpha2": "MP",
@@ -1356,7 +1506,8 @@
     "continent": "Oceania",
     "name": "Northern Mariana Islands",
     "official_name": "Commonwealth of the Northern Mariana Islands",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "MZ",
@@ -1365,7 +1516,8 @@
     "continent": "Africa",
     "name": "Mozambique",
     "official_name": "Republic of Mozambique",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+258"
   },
   {
     "alpha2": "MR",
@@ -1374,7 +1526,8 @@
     "continent": "Africa",
     "name": "Mauritania",
     "official_name": "Islamic Republic of Mauritania",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+222"
   },
   {
     "alpha2": "MS",
@@ -1383,7 +1536,8 @@
     "continent": "North America",
     "name": "Montserrat",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "MQ",
@@ -1392,7 +1546,8 @@
     "continent": "North America",
     "name": "Martinique",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+596"
   },
   {
     "alpha2": "MU",
@@ -1401,7 +1556,8 @@
     "continent": "Africa",
     "name": "Mauritius",
     "official_name": "Republic of Mauritius",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+230"
   },
   {
     "alpha2": "MW",
@@ -1410,7 +1566,8 @@
     "continent": "Africa",
     "name": "Malawi",
     "official_name": "Republic of Malawi",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+265"
   },
   {
     "alpha2": "MY",
@@ -1419,7 +1576,8 @@
     "continent": "Asia",
     "name": "Malaysia",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+60"
   },
   {
     "alpha2": "YT",
@@ -1428,7 +1586,8 @@
     "continent": "Africa",
     "name": "Mayotte",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+262"
   },
   {
     "alpha2": "NA",
@@ -1437,7 +1596,8 @@
     "continent": "Africa",
     "name": "Namibia",
     "official_name": "Republic of Namibia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+264"
   },
   {
     "alpha2": "NC",
@@ -1446,7 +1606,8 @@
     "continent": "Oceania",
     "name": "New Caledonia",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+687"
   },
   {
     "alpha2": "NE",
@@ -1455,7 +1616,8 @@
     "continent": "Africa",
     "name": "Niger",
     "official_name": "Republic of the Niger",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+227"
   },
   {
     "alpha2": "NF",
@@ -1464,7 +1626,8 @@
     "continent": "Oceania",
     "name": "Norfolk Island",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+672"
   },
   {
     "alpha2": "NG",
@@ -1473,7 +1636,8 @@
     "continent": "Africa",
     "name": "Nigeria",
     "official_name": "Federal Republic of Nigeria",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+234"
   },
   {
     "alpha2": "NI",
@@ -1482,7 +1646,8 @@
     "continent": "North America",
     "name": "Nicaragua",
     "official_name": "Republic of Nicaragua",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+505"
   },
   {
     "alpha2": "NU",
@@ -1491,7 +1656,8 @@
     "continent": "Oceania",
     "name": "Niue",
     "official_name": "Niue",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+683"
   },
   {
     "alpha2": "NL",
@@ -1500,7 +1666,8 @@
     "continent": "Europe",
     "name": "Netherlands",
     "official_name": "Kingdom of the Netherlands",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+31"
   },
   {
     "alpha2": "NO",
@@ -1509,7 +1676,8 @@
     "continent": "Europe",
     "name": "Norway",
     "official_name": "Kingdom of Norway",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+47"
   },
   {
     "alpha2": "NP",
@@ -1518,7 +1686,8 @@
     "continent": "Asia",
     "name": "Nepal",
     "official_name": "Federal Democratic Republic of Nepal",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+977"
   },
   {
     "alpha2": "NR",
@@ -1527,7 +1696,8 @@
     "continent": "Oceania",
     "name": "Nauru",
     "official_name": "Republic of Nauru",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+674"
   },
   {
     "alpha2": "NZ",
@@ -1536,7 +1706,8 @@
     "continent": "Oceania",
     "name": "New Zealand",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+64"
   },
   {
     "alpha2": "OM",
@@ -1545,7 +1716,8 @@
     "continent": "Asia",
     "name": "Oman",
     "official_name": "Sultanate of Oman",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+968"
   },
   {
     "alpha2": "PK",
@@ -1554,7 +1726,8 @@
     "continent": "Asia",
     "name": "Pakistan",
     "official_name": "Islamic Republic of Pakistan",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+92"
   },
   {
     "alpha2": "PA",
@@ -1563,7 +1736,8 @@
     "continent": "North America",
     "name": "Panama",
     "official_name": "Republic of Panama",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+507"
   },
   {
     "alpha2": "PN",
@@ -1572,7 +1746,8 @@
     "continent": "Oceania",
     "name": "Pitcairn",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+870"
   },
   {
     "alpha2": "PE",
@@ -1581,7 +1756,8 @@
     "continent": "South America",
     "name": "Peru",
     "official_name": "Republic of Peru",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+51"
   },
   {
     "alpha2": "PH",
@@ -1590,7 +1766,8 @@
     "continent": "Asia",
     "name": "Philippines",
     "official_name": "Republic of the Philippines",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+63"
   },
   {
     "alpha2": "PW",
@@ -1599,7 +1776,8 @@
     "continent": "Oceania",
     "name": "Palau",
     "official_name": "Republic of Palau",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+680"
   },
   {
     "alpha2": "PG",
@@ -1608,7 +1786,8 @@
     "continent": "Oceania",
     "name": "Papua New Guinea",
     "official_name": "Independent State of Papua New Guinea",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+675"
   },
   {
     "alpha2": "PL",
@@ -1617,7 +1796,8 @@
     "continent": "Europe",
     "name": "Poland",
     "official_name": "Republic of Poland",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+48"
   },
   {
     "alpha2": "PR",
@@ -1626,7 +1806,8 @@
     "continent": "North America",
     "name": "Puerto Rico",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "KP",
@@ -1635,7 +1816,8 @@
     "continent": "Asia",
     "name": "Korea, Democratic People's Republic of",
     "official_name": "Democratic People's Republic of Korea",
-    "common_name": "North Korea"
+    "common_name": "North Korea",
+    "dial_code": "+850"
   },
   {
     "alpha2": "PT",
@@ -1644,7 +1826,8 @@
     "continent": "Europe",
     "name": "Portugal",
     "official_name": "Portuguese Republic",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+351"
   },
   {
     "alpha2": "PY",
@@ -1653,7 +1836,8 @@
     "continent": "South America",
     "name": "Paraguay",
     "official_name": "Republic of Paraguay",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+595"
   },
   {
     "alpha2": "PS",
@@ -1662,7 +1846,8 @@
     "continent": "Asia",
     "name": "Palestine, State of",
     "official_name": "the State of Palestine",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+970"
   },
   {
     "alpha2": "PF",
@@ -1671,7 +1856,8 @@
     "continent": "Oceania",
     "name": "French Polynesia",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+689"
   },
   {
     "alpha2": "QA",
@@ -1680,7 +1866,8 @@
     "continent": "Asia",
     "name": "Qatar",
     "official_name": "State of Qatar",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+974"
   },
   {
     "alpha2": "RE",
@@ -1689,7 +1876,8 @@
     "continent": "Africa",
     "name": "Réunion",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+262"
   },
   {
     "alpha2": "RO",
@@ -1698,7 +1886,8 @@
     "continent": "Europe",
     "name": "Romania",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+40"
   },
   {
     "alpha2": "RU",
@@ -1707,7 +1896,8 @@
     "continent": "Europe",
     "name": "Russian Federation",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+7"
   },
   {
     "alpha2": "RW",
@@ -1716,7 +1906,8 @@
     "continent": "Africa",
     "name": "Rwanda",
     "official_name": "Rwandese Republic",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+250"
   },
   {
     "alpha2": "SA",
@@ -1725,7 +1916,8 @@
     "continent": "Asia",
     "name": "Saudi Arabia",
     "official_name": "Kingdom of Saudi Arabia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+966"
   },
   {
     "alpha2": "SD",
@@ -1734,7 +1926,8 @@
     "continent": "Africa",
     "name": "Sudan",
     "official_name": "Republic of the Sudan",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+249"
   },
   {
     "alpha2": "SN",
@@ -1743,7 +1936,8 @@
     "continent": "Africa",
     "name": "Senegal",
     "official_name": "Republic of Senegal",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+221"
   },
   {
     "alpha2": "SG",
@@ -1752,7 +1946,8 @@
     "continent": "Asia",
     "name": "Singapore",
     "official_name": "Republic of Singapore",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+65"
   },
   {
     "alpha2": "GS",
@@ -1761,7 +1956,8 @@
     "continent": "Antarctica",
     "name": "South Georgia and the South Sandwich Islands",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": null
   },
   {
     "alpha2": "SH",
@@ -1770,7 +1966,8 @@
     "continent": "Africa",
     "name": "Saint Helena, Ascension and Tristan da Cunha",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+290"
   },
   {
     "alpha2": "SJ",
@@ -1779,7 +1976,8 @@
     "continent": "Europe",
     "name": "Svalbard and Jan Mayen",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+47"
   },
   {
     "alpha2": "SB",
@@ -1788,7 +1986,8 @@
     "continent": "Oceania",
     "name": "Solomon Islands",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+677"
   },
   {
     "alpha2": "SL",
@@ -1797,7 +1996,8 @@
     "continent": "Africa",
     "name": "Sierra Leone",
     "official_name": "Republic of Sierra Leone",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+232"
   },
   {
     "alpha2": "SV",
@@ -1806,7 +2006,8 @@
     "continent": "North America",
     "name": "El Salvador",
     "official_name": "Republic of El Salvador",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+503"
   },
   {
     "alpha2": "SM",
@@ -1815,7 +2016,8 @@
     "continent": "Europe",
     "name": "San Marino",
     "official_name": "Republic of San Marino",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+378"
   },
   {
     "alpha2": "SO",
@@ -1824,7 +2026,8 @@
     "continent": "Africa",
     "name": "Somalia",
     "official_name": "Federal Republic of Somalia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+252"
   },
   {
     "alpha2": "PM",
@@ -1833,7 +2036,8 @@
     "continent": "North America",
     "name": "Saint Pierre and Miquelon",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+508"
   },
   {
     "alpha2": "RS",
@@ -1842,7 +2046,8 @@
     "continent": "Europe",
     "name": "Serbia",
     "official_name": "Republic of Serbia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+381"
   },
   {
     "alpha2": "SS",
@@ -1851,7 +2056,8 @@
     "continent": "Africa",
     "name": "South Sudan",
     "official_name": "Republic of South Sudan",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+211"
   },
   {
     "alpha2": "ST",
@@ -1860,7 +2066,8 @@
     "continent": "Africa",
     "name": "Sao Tome and Principe",
     "official_name": "Democratic Republic of Sao Tome and Principe",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+239"
   },
   {
     "alpha2": "SR",
@@ -1869,7 +2076,8 @@
     "continent": "South America",
     "name": "Suriname",
     "official_name": "Republic of Suriname",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+597"
   },
   {
     "alpha2": "SK",
@@ -1878,7 +2086,8 @@
     "continent": "Europe",
     "name": "Slovakia",
     "official_name": "Slovak Republic",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+421"
   },
   {
     "alpha2": "SI",
@@ -1887,7 +2096,8 @@
     "continent": "Europe",
     "name": "Slovenia",
     "official_name": "Republic of Slovenia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+386"
   },
   {
     "alpha2": "SE",
@@ -1896,7 +2106,8 @@
     "continent": "Europe",
     "name": "Sweden",
     "official_name": "Kingdom of Sweden",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+46"
   },
   {
     "alpha2": "SZ",
@@ -1905,7 +2116,8 @@
     "continent": "Africa",
     "name": "Eswatini",
     "official_name": "Kingdom of Eswatini",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+268"
   },
   {
     "alpha2": "SX",
@@ -1914,7 +2126,8 @@
     "continent": "North America",
     "name": "Sint Maarten (Dutch part)",
     "official_name": "Sint Maarten (Dutch part)",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+599"
   },
   {
     "alpha2": "SC",
@@ -1923,7 +2136,8 @@
     "continent": "Africa",
     "name": "Seychelles",
     "official_name": "Republic of Seychelles",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+248"
   },
   {
     "alpha2": "SY",
@@ -1932,7 +2146,8 @@
     "continent": "Asia",
     "name": "Syrian Arab Republic",
     "official_name": null,
-    "common_name": "Syria"
+    "common_name": "Syria",
+    "dial_code": "+963"
   },
   {
     "alpha2": "TC",
@@ -1941,7 +2156,8 @@
     "continent": "North America",
     "name": "Turks and Caicos Islands",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "TD",
@@ -1950,7 +2166,8 @@
     "continent": "Africa",
     "name": "Chad",
     "official_name": "Republic of Chad",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+235"
   },
   {
     "alpha2": "TG",
@@ -1959,7 +2176,8 @@
     "continent": "Africa",
     "name": "Togo",
     "official_name": "Togolese Republic",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+228"
   },
   {
     "alpha2": "TH",
@@ -1968,7 +2186,8 @@
     "continent": "Asia",
     "name": "Thailand",
     "official_name": "Kingdom of Thailand",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+66"
   },
   {
     "alpha2": "TJ",
@@ -1977,7 +2196,8 @@
     "continent": "Asia",
     "name": "Tajikistan",
     "official_name": "Republic of Tajikistan",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+992"
   },
   {
     "alpha2": "TK",
@@ -1986,7 +2206,8 @@
     "continent": "Oceania",
     "name": "Tokelau",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+690"
   },
   {
     "alpha2": "TM",
@@ -1995,7 +2216,8 @@
     "continent": "Asia",
     "name": "Turkmenistan",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+993"
   },
   {
     "alpha2": "TL",
@@ -2004,7 +2226,8 @@
     "continent": "Oceania",
     "name": "Timor-Leste",
     "official_name": "Democratic Republic of Timor-Leste",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+670"
   },
   {
     "alpha2": "TO",
@@ -2013,7 +2236,8 @@
     "continent": "Oceania",
     "name": "Tonga",
     "official_name": "Kingdom of Tonga",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+676"
   },
   {
     "alpha2": "TT",
@@ -2022,7 +2246,8 @@
     "continent": "North America",
     "name": "Trinidad and Tobago",
     "official_name": "Republic of Trinidad and Tobago",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "TN",
@@ -2031,7 +2256,8 @@
     "continent": "Africa",
     "name": "Tunisia",
     "official_name": "Republic of Tunisia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+216"
   },
   {
     "alpha2": "TR",
@@ -2040,7 +2266,8 @@
     "continent": "Asia",
     "name": "Türkiye",
     "official_name": "Republic of Türkiye",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+90"
   },
   {
     "alpha2": "TV",
@@ -2049,7 +2276,8 @@
     "continent": "Oceania",
     "name": "Tuvalu",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+688"
   },
   {
     "alpha2": "TW",
@@ -2058,7 +2286,8 @@
     "continent": "Asia",
     "name": "Taiwan, Province of China",
     "official_name": "Taiwan, Province of China",
-    "common_name": "Taiwan"
+    "common_name": "Taiwan",
+    "dial_code": "+886"
   },
   {
     "alpha2": "TZ",
@@ -2067,7 +2296,8 @@
     "continent": "Africa",
     "name": "Tanzania, United Republic of",
     "official_name": "United Republic of Tanzania",
-    "common_name": "Tanzania"
+    "common_name": "Tanzania",
+    "dial_code": "+255"
   },
   {
     "alpha2": "UG",
@@ -2076,7 +2306,8 @@
     "continent": "Africa",
     "name": "Uganda",
     "official_name": "Republic of Uganda",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+256"
   },
   {
     "alpha2": "UA",
@@ -2085,7 +2316,8 @@
     "continent": "Europe",
     "name": "Ukraine",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+380"
   },
   {
     "alpha2": "UM",
@@ -2094,7 +2326,8 @@
     "continent": "Oceania",
     "name": "United States Minor Outlying Islands",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "UY",
@@ -2103,7 +2336,8 @@
     "continent": "South America",
     "name": "Uruguay",
     "official_name": "Eastern Republic of Uruguay",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+598"
   },
   {
     "alpha2": "US",
@@ -2112,7 +2346,8 @@
     "continent": "North America",
     "name": "United States",
     "official_name": "United States of America",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "UZ",
@@ -2121,7 +2356,8 @@
     "continent": "Asia",
     "name": "Uzbekistan",
     "official_name": "Republic of Uzbekistan",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+998"
   },
   {
     "alpha2": "VA",
@@ -2130,7 +2366,8 @@
     "continent": "Europe",
     "name": "Holy See (Vatican City State)",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+379"
   },
   {
     "alpha2": "VC",
@@ -2139,7 +2376,8 @@
     "continent": "North America",
     "name": "Saint Vincent and the Grenadines",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "VE",
@@ -2148,7 +2386,8 @@
     "continent": "South America",
     "name": "Venezuela, Bolivarian Republic of",
     "official_name": "Bolivarian Republic of Venezuela",
-    "common_name": "Venezuela"
+    "common_name": "Venezuela",
+    "dial_code": "+58"
   },
   {
     "alpha2": "VG",
@@ -2157,7 +2396,8 @@
     "continent": "North America",
     "name": "Virgin Islands, British",
     "official_name": "British Virgin Islands",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "VI",
@@ -2166,7 +2406,8 @@
     "continent": "North America",
     "name": "Virgin Islands, U.S.",
     "official_name": "Virgin Islands of the United States",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+1"
   },
   {
     "alpha2": "VN",
@@ -2175,7 +2416,8 @@
     "continent": "Asia",
     "name": "Viet Nam",
     "official_name": "Socialist Republic of Viet Nam",
-    "common_name": "Vietnam"
+    "common_name": "Vietnam",
+    "dial_code": "+84"
   },
   {
     "alpha2": "VU",
@@ -2184,7 +2426,8 @@
     "continent": "Oceania",
     "name": "Vanuatu",
     "official_name": "Republic of Vanuatu",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+678"
   },
   {
     "alpha2": "WF",
@@ -2193,7 +2436,8 @@
     "continent": "Oceania",
     "name": "Wallis and Futuna",
     "official_name": null,
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+681"
   },
   {
     "alpha2": "WS",
@@ -2202,7 +2446,8 @@
     "continent": "Oceania",
     "name": "Samoa",
     "official_name": "Independent State of Samoa",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+685"
   },
   {
     "alpha2": "YE",
@@ -2211,7 +2456,8 @@
     "continent": "Asia",
     "name": "Yemen",
     "official_name": "Republic of Yemen",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+967"
   },
   {
     "alpha2": "ZA",
@@ -2220,7 +2466,8 @@
     "continent": "Africa",
     "name": "South Africa",
     "official_name": "Republic of South Africa",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+27"
   },
   {
     "alpha2": "ZM",
@@ -2229,7 +2476,8 @@
     "continent": "Africa",
     "name": "Zambia",
     "official_name": "Republic of Zambia",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+260"
   },
   {
     "alpha2": "ZW",
@@ -2238,6 +2486,7 @@
     "continent": "Africa",
     "name": "Zimbabwe",
     "official_name": "Republic of Zimbabwe",
-    "common_name": null
+    "common_name": null,
+    "dial_code": "+263"
   }
 ]

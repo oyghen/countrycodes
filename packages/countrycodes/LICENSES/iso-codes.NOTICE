@@ -21,6 +21,10 @@ The continent assignments are derived from the Continent field in GeoNames
 countryInfo.txt, downloaded 2026-10-28:
 https://download.geonames.org/export/dump/countryInfo.txt
 
+The international dial codes are derived from the Phone field in GeoNames
+countryInfo.txt, downloaded 2026-10-29. They contain the country calling code,
+excluding any area-code portion supplied by GeoNames.
+
 GeoNames data is licensed under the Creative Commons Attribution 4.0
 International License (CC BY 4.0):
 https://creativecommons.org/licenses/by/4.0/

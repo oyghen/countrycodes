@@ -48,6 +48,7 @@ countrycodes list --format json
 
 The default list is rendered as a table sorted by alpha-2 code, with a row
 number. JSON output remains an unnumbered array of country records.
+Country records include the international dial code when available.
 
 See all options with:
 
