@@ -46,6 +46,7 @@ Lookups accept alpha-2, alpha-3, and numeric codes, dial codes, and country
 names. Matching is case-insensitive and ignores surrounding or repeated
 whitespace. A dial code shared by multiple countries is ambiguous and raises
 `ValueError`.
+`list_countries` returns records sorted by alpha-2 code.
 `find_country` returns `None` when there is no match; `get_country` raises
 `CountryNotFoundError`. `dial_code` is the international country calling code,
 not a local area code, and is `None` when no code is available.

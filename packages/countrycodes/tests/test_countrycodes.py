@@ -70,8 +70,8 @@ def test_list_countries_returns_complete_sorted_registry() -> None:
         "Oceania",
         "South America",
     }
-    assert tuple(country.name.casefold() for country in countries) == tuple(
-        sorted(country.name.casefold() for country in countries)
+    assert tuple(country.alpha2 for country in countries) == tuple(
+        sorted(country.alpha2 for country in countries)
     )
     assert len({country.alpha2 for country in countries}) == 249
     assert all(

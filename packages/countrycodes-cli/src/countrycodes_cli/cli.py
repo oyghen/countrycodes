@@ -92,7 +92,7 @@ def list_countries(
     ] = "text",
 ) -> None:
     """List all countries and territories."""
-    countries = sorted(cc.list_countries(), key=lambda country: country.alpha2)
+    countries = cc.list_countries()
     if output_format == "json":
         typer.echo(
             json.dumps(
