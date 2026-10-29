@@ -17,8 +17,6 @@ from functools import cache
 from importlib.resources import files
 from typing import Any
 
-_FUZZY_MATCH_THRESHOLD = 0.8
-
 
 class CountryNotFoundError(LookupError):
     """Raised when a country query does not match the registry."""
@@ -79,7 +77,7 @@ def _find_fuzzy_country(query: str, countries: tuple[Country, ...]) -> Country |
     if not normalized_query:
         return None
 
-    best_score = _FUZZY_MATCH_THRESHOLD
+    best_score = 0.8
     best_matches: set[Country] = set()
     for country in countries:
         names = (country.name, country.official_name, country.common_name)
