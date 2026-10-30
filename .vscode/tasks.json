@@ -2,9 +2,20 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Install workspace dependencies",
+            "type": "shell",
+            "command": "uv sync --dev --all-packages",
+            "inAgents": true,
+            "runOptions": {
+                "runOn": "worktreeCreated"
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "pre-commit all",
             "type": "shell",
             "command": "uv run pre-commit run --all-files",
+            "inAgents": true,
             "problemMatcher": []
         },
         {
@@ -20,6 +31,7 @@
                 "--ignore=user",
                 "--ignore=version.py"
             ],
+            "inAgents": true,
             "problemMatcher": []
         },
         {
@@ -29,6 +41,7 @@
                 "pytest"
             ],
             "dependsOrder": "sequence",
+            "inAgents": true,
             "problemMatcher": []
         }
     ]
