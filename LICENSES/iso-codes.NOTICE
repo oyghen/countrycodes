@@ -1,5 +1,5 @@
 The ISO 3166-1 country registry in
-packages/countrycodes/src/countrycodes/data/iso_3166-1.json is derived from
+packages/countrycodes/src/countrycodes/country.py is derived from
 the iso-codes project, version 4.16.0:
 https://salsa.debian.org/iso-codes-team/iso-codes
 
@@ -7,11 +7,11 @@ Copyright (c) 2001-2008 Alastair McKinstry
 Copyright (c) 2004-2016 Christian Perrier
 Copyright (c) 2005-2024 Dr. Tobias Quathamer
 
-The bundled JSON is an adapted subset of the upstream ISO 3166-1 records. It
-retains alpha-2, alpha-3, numeric, and name fields (including optional official
-and common names), renames the alpha code keys to the library's schema, and
-omits unrelated upstream fields. It also includes continent display names
-derived from the GeoNames data described below.
+The bundled Python registry is an adapted subset of the upstream ISO 3166-1
+records. It retains alpha-2, alpha-3, numeric, and name fields (including
+optional official and common names), renames the alpha code keys to the
+library's schema, and omits unrelated upstream fields. It also includes
+continent display names derived from the GeoNames data described below.
 
 The registry data is licensed under the GNU Lesser General Public License,
 version 2.1 or (at your option) any later version. The license text is

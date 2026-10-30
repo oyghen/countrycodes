@@ -67,6 +67,7 @@ def test_get_country_raises_for_unknown_query() -> None:
 def test_list_countries_returns_complete_sorted_registry() -> None:
     countries = list_countries()
 
+    assert list_countries() is countries
     assert len(countries) == 249
     assert {country.continent for country in countries} == {
         "Africa",

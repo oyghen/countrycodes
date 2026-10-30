@@ -11,12 +11,7 @@ __all__ = (
 
 from importlib import metadata
 
-from countrycodes.core import (
-    Country,
-    CountryNotFoundError,
-    find_country,
-    get_country,
-    list_countries,
-)
+from countrycodes.core import CountryNotFoundError, find_country, get_country
+from countrycodes.country import Country, list_countries
 
 __version__ = metadata.version(__name__)

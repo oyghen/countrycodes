@@ -1,45 +1,17 @@
-"""Core ISO 3166-1 country data and lookup API."""
+"""ISO 3166-1 country lookup API."""
 
-__all__ = (
-    "Country",
-    "CountryNotFoundError",
-    "find_country",
-    "get_country",
-    "list_countries",
-)
+__all__ = ("CountryNotFoundError", "find_country", "get_country")
 
 
-import json
 from collections import defaultdict
-from dataclasses import dataclass
 from difflib import SequenceMatcher
 from functools import cache
-from importlib.resources import files
-from typing import Any
+
+from countrycodes.country import Countries, Country, list_countries
 
 
 class CountryNotFoundError(LookupError):
     """Raised when a country query does not match the registry."""
-
-
-@dataclass(frozen=True, slots=True)
-class Country:
-    """An ISO 3166-1 country or territory with geographic and dialing data."""
-
-    alpha2: str
-    alpha3: str
-    numeric: str
-    continent: str
-    name: str
-    official_name: str | None = None
-    common_name: str | None = None
-    dial_code: str | None = None
-
-
-def list_countries() -> tuple[Country, ...]:
-    """Return all countries and territories, sorted by alpha-2 code."""
-    countries, _ = _registry()
-    return countries
 
 
 def find_country(query: str) -> Country | None:
@@ -50,7 +22,8 @@ def find_country(query: str) -> Country | None:
     surrounding or repeated whitespace. If there is no exact match, a
     sufficiently similar country name is matched instead.
     """
-    countries, index = _registry()
+    countries = list_countries()
+    index = _country_index(countries)
     matches = index.get(_normalize(query), ())
     unique_matches = tuple(dict.fromkeys(matches))
     if len(unique_matches) > 1:
@@ -69,10 +42,12 @@ def get_country(query: str) -> Country:
 
 
 def _normalize(value: str) -> str:
+    """Normalize a country query for matching."""
     return " ".join(value.casefold().split())
 
 
-def _find_fuzzy_country(query: str, countries: tuple[Country, ...]) -> Country | None:
+def _find_fuzzy_country(query: str, countries: Countries) -> Country | None:
+    """Return the closest matching country name, if any."""
     normalized_query = _normalize(query)
     if not normalized_query:
         return None
@@ -101,16 +76,11 @@ def _find_fuzzy_country(query: str, countries: tuple[Country, ...]) -> Country |
 
 
 @cache
-def _registry() -> tuple[tuple[Country, ...], dict[str, tuple[Country, ...]]]:
-    data_file = files("countrycodes").joinpath("data/iso_3166-1.json")
-    with data_file.open(encoding="utf-8") as file:
-        records: list[dict[str, Any]] = json.load(file)
-    countries = tuple(Country(**record) for record in records)
-    countries = tuple(sorted(countries, key=lambda country: country.alpha2))
-
+def _country_index(countries: Countries) -> dict[str, Countries]:
+    """Build the cached index of country codes and names."""
     index: dict[str, list[Country]] = defaultdict(list)
     for country in countries:
-        for value in (
+        search_terms = (
             country.alpha2,
             country.alpha3,
             country.numeric,
@@ -118,8 +88,9 @@ def _registry() -> tuple[tuple[Country, ...], dict[str, tuple[Country, ...]]]:
             country.name,
             country.official_name,
             country.common_name,
-        ):
+        )
+        for value in search_terms:
             if value is not None:
                 index[_normalize(value)].append(country)
 
-    return countries, {key: tuple(matches) for key, matches in index.items()}
+    return {key: tuple(matches) for key, matches in index.items()}
