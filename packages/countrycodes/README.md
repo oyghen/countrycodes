@@ -40,24 +40,28 @@ print(typo_tolerant_match.alpha2)  # US
 print(len(cc.list_countries()))  # 249
 ```
 
-Lookups accept alpha-2, alpha-3, and numeric codes, dial codes, and country
-names. Matching is case-insensitive and ignores surrounding or repeated
-whitespace. If there is no exact match, countries are returned in name
-similarity order, even if the similarity is low. The similarity score combines
-word-level and full-name matches equally. Exact shared dial codes return every
-matching country.
+Lookups accept alpha-2, alpha-3, and numeric codes, dial codes, and display
+names. A display name uses `common_name` when available and otherwise `name`.
+Matching is case-insensitive and ignores surrounding or repeated whitespace.
+If there is no exact match, countries are returned in name similarity order,
+even if the similarity is low. The similarity score combines word-level and
+full-name matches equally. Exact shared dial codes return every matching
+country.
 `list_countries` returns records sorted by alpha-2 code.
 `search_countries` returns a tuple of matches; use `limit` to cap the result count.
 An empty query returns an empty tuple. `dial_code` is the international
 country calling code, not a local area code, and is `None` when no code is
 available. `country_name_similarity(query, country)` returns the best combined
-transposition-aware word and full-name similarity score for the displayed
-country name as a value from 0 to 1.
+transposition-aware word and full-name similarity score for the display name
+as a value from 0 to 1.
 
 ## Data and licenses
 
 The bundled country registry is an adapted subset of ISO 3166-1 data from the
-[`iso-codes` project](https://salsa.debian.org/iso-codes-team/iso-codes).
+[`iso-codes` project](https://salsa.debian.org/iso-codes-team/iso-codes). Source
+country names are retained as provided; their inclusion does not imply
+endorsement of any political position. Text output uses each record's common
+name when available, falling back to its source name.
 Continent assignments are from [GeoNames](https://www.geonames.org/), using
 GeoNames' single-continent mapping for each country or territory. The
 registry data is licensed under LGPL-2.1-or-later, continent assignments under

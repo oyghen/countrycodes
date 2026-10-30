@@ -58,6 +58,14 @@ def test_lookup_command_prints_text() -> None:
     assert "United Kingdom" in result.stdout
 
 
+def test_lookup_displays_common_name() -> None:
+    result = runner.invoke(app, ["lookup", "TW"])
+
+    assert result.exit_code == 0
+    assert "Taiwan" in result.stdout
+    assert "Province of China" not in result.stdout
+
+
 def test_lookup_shows_dimmed_null_for_missing_dial_code() -> None:
     result = runner.invoke(app, ["lookup", "AQ"])
 
@@ -254,3 +262,12 @@ def test_list_shows_null_for_missing_dial_code() -> None:
     assert result.exit_code == 0
     antarctica_row = next(line for line in result.stdout.splitlines() if "AQ" in line)
     assert "NULL" in antarctica_row
+
+
+def test_list_displays_common_name() -> None:
+    result = runner.invoke(app, ["list"])
+
+    assert result.exit_code == 0
+    taiwan_row = next(line for line in result.stdout.splitlines() if "TW" in line)
+    assert "Taiwan" in taiwan_row
+    assert "Province of China" not in taiwan_row

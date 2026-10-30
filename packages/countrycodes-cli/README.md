@@ -53,10 +53,13 @@ The `--limit` option controls the maximum number of matches shown for a lookup
 truncated, the CLI notes that it is showing only the top matches. JSON lookup
 output is a single record for one match or an array for multiple matches. The
 default list is rendered as a table sorted by alpha-2 code, with a row number,
-and JSON list output is an unnumbered array. Country records include the
-international dial code when available. Fuzzy text lookup tables include a
-combined word-level and full displayed-name similarity percentage for each
-result. Fuzzy matching uses transposition-aware edit-distance scoring.
+and JSON list output is an unnumbered array. Text tables show a country's
+common name when available, falling back to its source name. Country records
+include the international dial code when available. Fuzzy text lookup tables
+include a combined word-level and full displayed-name similarity percentage
+for each result. Fuzzy matching uses transposition-aware edit-distance scoring.
+Country name data is retained as provided by its source; inclusion does not
+imply endorsement of any political position.
 
 See all options with:
 

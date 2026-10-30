@@ -39,7 +39,7 @@ def test_lookup_by_each_code_format() -> None:
 
 def test_lookup_by_name_and_whitespace() -> None:
     assert cc.search_countries("  united   states  ")[0].alpha2 == "US"
-    assert cc.search_countries("United States of America")[0].alpha2 == "US"
+    assert cc.search_countries("Taiwan")[0].alpha2 == "TW"
 
 
 def test_lookup_by_fuzzy_country_name() -> None:
@@ -152,3 +152,13 @@ def test_list_countries_returns_complete_sorted_registry() -> None:
         country.dial_code is None or country.dial_code.startswith("+")
         for country in countries
     )
+
+
+def test_display_name_prefers_common_name_and_falls_back_to_name() -> None:
+    taiwan = cc.search_countries("TW")[0]
+    antarctica = cc.search_countries("AQ")[0]
+
+    assert taiwan.name == "Taiwan, Province of China"
+    assert taiwan.display_name == "Taiwan"
+    assert antarctica.common_name is None
+    assert antarctica.display_name == antarctica.name

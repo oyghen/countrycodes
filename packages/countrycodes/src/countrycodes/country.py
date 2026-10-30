@@ -20,6 +20,13 @@ class Country:
     common_name: str | None = None
     dial_code: str | None = None
 
+    @property
+    def display_name(self) -> str:
+        """Return the common name, or the source name when no common name exists."""
+        if self.common_name is not None:
+            return self.common_name
+        return self.name
+
 
 Countries = tuple[Country, ...]
 

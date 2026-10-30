@@ -73,9 +73,7 @@ def lookup(
                 first_country.alpha3,
                 first_country.numeric,
                 first_country.dial_code,
-                first_country.name,
-                first_country.official_name,
-                first_country.common_name,
+                first_country.display_name,
             )
             if value is not None
         }
@@ -114,7 +112,7 @@ def lookup(
                 country.numeric,
                 country.dial_code or "[dim]NULL[/dim]",
                 country.continent,
-                country.name,
+                country.display_name,
             )
             if is_fuzzy_lookup:
                 score = cc.country_name_similarity(query, country)
@@ -165,6 +163,6 @@ def list_countries(
                 country.numeric,
                 country.dial_code or "[dim]NULL[/dim]",
                 country.continent,
-                country.name,
+                country.display_name,
             )
         Console().print(table)
