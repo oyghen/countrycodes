@@ -159,5 +159,5 @@ def list_countries(
 
 
 def _normalize_query(value: str) -> str:
-    """Normalize text using the same whitespace and case rules as the library."""
+    """Return normalized text using the library's whitespace and case rules."""
     return " ".join(value.casefold().split())

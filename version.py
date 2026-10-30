@@ -27,7 +27,7 @@ CLI_PYPROJECT = ROOT / "packages" / CLI_NAME / "pyproject.toml"
 
 
 class BumpType(StrEnum):
-    """Supported version bump types."""
+    """Define the supported version bump types."""
 
     major = auto()
     minor = auto()
@@ -86,7 +86,7 @@ def bump_versions(bumps: list[BumpType]) -> None:
 
 
 def uv_version_args(bumps: list[BumpType], package: str | None = None) -> list[str]:
-    """Build a uv version command that preserves bump order."""
+    """Return uv version command arguments in bump order."""
     args = ["uv", "version", "--frozen"]
 
     for bump in bumps:
@@ -99,7 +99,7 @@ def uv_version_args(bumps: list[BumpType], package: str | None = None) -> list[s
 
 
 def project_version(path: Path) -> str:
-    """Read the project version from a pyproject.toml file."""
+    """Return the project version from a pyproject.toml file."""
     data: dict[str, Any] = tomllib.loads(path.read_text(encoding="utf-8"))
     version = data["project"]["version"]
     if not isinstance(version, str):
@@ -128,7 +128,7 @@ def update_dependency_pin(version: str) -> None:
 
 
 def replace_exact_pin(text: str, package: str, version: str) -> str:
-    """Replace an exact dependency pin with a new version."""
+    """Return text with an exact dependency pin replaced."""
     pattern = rf"({re.escape(package)}==)([^\s,;\"']+)"
     updated, count = re.subn(pattern, rf"\g<1>{version}", text, count=1)
 

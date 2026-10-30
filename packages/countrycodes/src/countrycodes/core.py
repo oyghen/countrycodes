@@ -74,13 +74,13 @@ def country_name_similarity(query: str, country: Country) -> float:
 
 
 def _normalize(value: str) -> str:
-    """Normalize a country query for matching."""
+    """Return a normalized country query."""
     return " ".join(value.casefold().split())
 
 
 @cache
 def _country_index(countries: Countries) -> dict[str, Countries]:
-    """Build the cached index of country codes and names."""
+    """Return the cached index of country codes and names."""
     index: dict[str, list[Country]] = defaultdict(list)
     for country in countries:
         search_terms = (
