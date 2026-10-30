@@ -1,6 +1,6 @@
 """ISO 3166-1 country lookup API."""
 
-__all__ = ("find_country",)
+__all__ = ("search_countries",)
 
 
 from collections import defaultdict
@@ -10,59 +10,56 @@ from functools import cache
 from countrycodes.country import Countries, Country, list_countries
 
 
-def find_country(query: str) -> Country | None:
-    """Return an exact or best fuzzy match; return ``None`` for an empty query.
+def search_countries(query: str, *, limit: int | None = None) -> Countries:
+    """Return exact matches or fuzzy matches ranked by name similarity.
 
     Queries match ISO alpha-2, alpha-3, and numeric codes, dial codes, and
     common, official, and short country names. Matching ignores case and
-    surrounding or repeated whitespace. If there is no exact match, the
-    country with the most similar name is matched instead. Single-word
-    queries are compared with individual name words; equal best matches raise
-    ``ValueError``.
+    surrounding or repeated whitespace. If there is no exact match, countries
+    are ranked by name similarity, comparing single-word queries with
+    individual name words. ``limit`` restricts the number of returned
+    countries; it must be positive when provided. An empty query returns an
+    empty tuple.
     """
+    if limit is not None and limit < 1:
+        raise ValueError("limit must be positive")
+
+    normalized_query = _normalize(query)
+    if not normalized_query:
+        return ()
+
     countries = list_countries()
-    index = _country_index(countries)
-    matches = index.get(_normalize(query), ())
-    unique_matches = tuple(dict.fromkeys(matches))
-    if len(unique_matches) > 1:
-        raise ValueError(f"Country query is ambiguous: {query!r}")
-    if unique_matches:
-        return unique_matches[0]
-    return _find_fuzzy_country(query, countries)
+    exact_matches = _country_index(countries).get(normalized_query, ())
+    if exact_matches:
+        matches = exact_matches
+    else:
+        scored_countries = []
+        for country in countries:
+            names = (country.name, country.official_name, country.common_name)
+            score = max(
+                (
+                    _name_similarity(normalized_query, name)
+                    for name in names
+                    if name is not None
+                ),
+                default=(0.0, 0.0),
+            )
+            scored_countries.append((score, country))
+        matches = tuple(
+            country
+            for _, country in sorted(
+                scored_countries,
+                key=lambda match: match[0],
+                reverse=True,
+            )
+        )
+
+    return matches if limit is None else matches[:limit]
 
 
 def _normalize(value: str) -> str:
     """Normalize a country query for matching."""
     return " ".join(value.casefold().split())
-
-
-def _find_fuzzy_country(query: str, countries: Countries) -> Country | None:
-    """Return the closest matching country name, if any."""
-    normalized_query = _normalize(query)
-    if not normalized_query:
-        return None
-
-    best_score = (0.0, 0.0)
-    best_matches: set[Country] = set()
-    for country in countries:
-        names = (country.name, country.official_name, country.common_name)
-        score = max(
-            (
-                _name_similarity(normalized_query, name)
-                for name in names
-                if name is not None
-            ),
-            default=(0.0, 0.0),
-        )
-        if score > best_score:
-            best_score = score
-            best_matches = {country}
-        elif score == best_score:
-            best_matches.add(country)
-
-    if len(best_matches) > 1:
-        raise ValueError(f"Country query is ambiguous: {query!r}")
-    return next(iter(best_matches), None)
 
 
 def _name_similarity(query: str, name: str) -> tuple[float, float]:

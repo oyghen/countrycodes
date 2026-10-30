@@ -63,6 +63,27 @@ def test_lookup_command_accepts_fuzzy_country_name() -> None:
 
     assert result.exit_code == 0
     assert "United States" in result.stdout
+    assert "Showing only the top 5 matches." in result.stdout
+
+
+def test_fuzzy_lookup_json_returns_top_five_matches() -> None:
+    result = runner.invoke(app, ["lookup", "Untied States", "--format", "json"])
+
+    assert result.exit_code == 0
+    countries = json.loads(result.stdout)
+    assert len(countries) == 5
+    assert countries[0]["alpha2"] == "US"
+
+
+def test_fuzzy_lookup_limit_can_be_customized() -> None:
+    result = runner.invoke(
+        app, ["lookup", "Untied States", "--limit", "2", "--format", "json"]
+    )
+
+    assert result.exit_code == 0
+    countries = json.loads(result.stdout)
+    assert len(countries) == 2
+    assert countries[0]["alpha2"] == "US"
 
 
 def test_lookup_command_accepts_dial_code() -> None:
@@ -81,11 +102,12 @@ def test_lookup_command_accepts_dial_code() -> None:
         if line.startswith("│")
         if (columns := line.split("│"))[1].strip() not in {"", "Alpha-2"}
     }
-    assert displayed_alpha2 == {country.alpha2 for country in matching_countries}
+    assert displayed_alpha2 == {country.alpha2 for country in matching_countries[:5]}
+    assert "Showing only the top 5 matches." in result.stdout
 
 
 def test_lookup_command_returns_all_dial_code_matches_as_json() -> None:
-    result = runner.invoke(app, ["lookup", "+1", "--format", "json"])
+    result = runner.invoke(app, ["lookup", "+1", "--limit", "50", "--format", "json"])
 
     assert result.exit_code == 0
     countries = json.loads(result.stdout)
@@ -96,6 +118,21 @@ def test_lookup_command_returns_all_dial_code_matches_as_json() -> None:
         for country in countrycodes.list_countries()
         if country.dial_code == "+1"
     }
+
+
+def test_dial_code_lookup_respects_limit() -> None:
+    result = runner.invoke(app, ["lookup", "+1", "--limit", "2", "--format", "json"])
+
+    assert result.exit_code == 0
+    countries = json.loads(result.stdout)
+    assert len(countries) == 2
+    assert {country["dial_code"] for country in countries} == {"+1"}
+
+
+def test_lookup_rejects_non_positive_limit() -> None:
+    result = runner.invoke(app, ["lookup", "US", "--limit", "0"])
+
+    assert result.exit_code != 0
 
 
 def test_lookup_command_accepts_unique_dial_code() -> None:

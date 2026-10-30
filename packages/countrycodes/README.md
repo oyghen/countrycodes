@@ -26,15 +26,15 @@ Requires Python 3.11 or newer.
 ```python
 import countrycodes as cc
 
-united_states = cc.find_country("us")
+united_states = cc.search_countries("us")[0]
 print(united_states.alpha3)  # USA
 print(united_states.numeric)  # 840
 print(united_states.dial_code)  # +1
 
-united_kingdom = cc.find_country("United Kingdom")
+united_kingdom = cc.search_countries("United Kingdom")[0]
 print(united_kingdom.alpha2)  # GB
 
-typo_tolerant_match = cc.find_country("Untied States")
+typo_tolerant_match = cc.search_countries("Untied States")[0]
 print(typo_tolerant_match.alpha2)  # US
 
 print(len(cc.list_countries()))  # 249
@@ -42,14 +42,15 @@ print(len(cc.list_countries()))  # 249
 
 Lookups accept alpha-2, alpha-3, and numeric codes, dial codes, and country
 names. Matching is case-insensitive and ignores surrounding or repeated
-whitespace. If there is no exact match, the country with the most similar
-name is returned, even if the similarity is low. Single-word queries are
-compared with individual words in country names. Equal best matches and dial
-codes shared by multiple countries raise `ValueError`.
+whitespace. If there is no exact match, countries are returned in name
+similarity order, even if the similarity is low. Single-word queries are
+compared with individual words in country names. Exact shared dial codes
+return every matching country.
 `list_countries` returns records sorted by alpha-2 code.
-`find_country` returns `None` for an empty query. `dial_code` is the
-international country calling code, not a local area code, and is `None` when
-no code is available.
+`search_countries` returns a tuple of matches; use `limit` to cap the result count.
+An empty query returns an empty tuple. `dial_code` is the international
+country calling code, not a local area code, and is `None` when no code is
+available.
 
 ## Data and licenses
 

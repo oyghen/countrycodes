@@ -36,6 +36,7 @@ Look up a country by code or name:
 countrycodes lookup US
 countrycodes lookup "United Kingdom"
 countrycodes lookup +1
+countrycodes lookup Untied --limit 3
 ```
 
 Lookups are displayed as a table by default. Choose JSON output or list all
@@ -47,11 +48,13 @@ countrycodes list
 countrycodes list --format json
 ```
 
-Dial-code lookups display every country or territory sharing that code. In
-JSON, dial-code lookups return an array; lookups by country name or ISO code
-return a single record. The default list is rendered as a table sorted by
-alpha-2 code, with a row number, and JSON list output is an unnumbered array.
-Country records include the international dial code when available.
+The `--limit` option controls the maximum number of matches shown for a lookup
+(default: 5), including countries sharing a dial code. When the text output is
+truncated, the CLI notes that it is showing only the top matches. JSON lookup
+output is a single record for one match or an array for multiple matches. The
+default list is rendered as a table sorted by alpha-2 code, with a row number,
+and JSON list output is an unnumbered array. Country records include the
+international dial code when available.
 
 See all options with:
 

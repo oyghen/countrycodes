@@ -35,9 +35,13 @@ def lookup(
         Literal["text", "json"],
         typer.Option("--format", help="Output format."),
     ] = "text",
+    limit: Annotated[
+        int,
+        typer.Option("--limit", min=1, help="Maximum number of matches to show."),
+    ] = 5,
 ) -> None:
     """Look up a country by name, ISO code, or dial code."""
-    countries = (
+    countries: tuple[cc.Country, ...] = (
         tuple(
             country
             for country in cc.list_countries()
@@ -47,19 +51,29 @@ def lookup(
         else ()
     )
     is_dial_code_lookup = bool(countries)
+    has_more_matches = False
 
-    if not countries:
-        country = cc.find_country(query)
-        if country is None:
+    if is_dial_code_lookup:
+        has_more_matches = len(countries) > limit
+        countries = countries[:limit]
+    else:
+        matches = cc.search_countries(query, limit=limit + 1)
+        if not matches:
             typer.echo(f"No country matches {query!r}", err=True)
             raise typer.Exit(1)
-        countries = (country,)
+        has_more_matches = len(matches) > limit
+        countries = matches[:limit]
+
+    if not countries:
+        typer.echo(f"No country matches {query!r}", err=True)
+        raise typer.Exit(1)
 
     if output_format == "json":
+        first_country = next(iter(countries), None)
         result = (
             [asdict(country) for country in countries]
-            if is_dial_code_lookup
-            else asdict(countries[0])
+            if first_country is None or len(countries) > 1
+            else asdict(first_country)
         )
         typer.echo(json.dumps(result, ensure_ascii=False))
     else:
@@ -82,6 +96,8 @@ def lookup(
                 country.name,
             )
         Console().print(table)
+        if has_more_matches:
+            Console().print(f"[dim]Showing only the top {limit} matches.[/dim]")
 
 
 @app.command(name="list")

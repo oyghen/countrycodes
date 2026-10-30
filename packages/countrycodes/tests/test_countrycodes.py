@@ -3,7 +3,8 @@
 from importlib import metadata
 from types import ModuleType
 
-from countrycodes import Country, find_country, list_countries
+import pytest
+from countrycodes import Country, list_countries, search_countries
 
 
 def test_project_name(project_name: str, project_pkg: ModuleType) -> None:
@@ -25,36 +26,58 @@ def test_lookup_by_each_code_format() -> None:
         dial_code="+1",
     )
 
-    assert find_country("US") == expected
-    assert find_country("usa") == expected
-    assert find_country(" 840 ") == expected
-    assert find_country("GB").continent == "Europe"
-    assert find_country("GB").dial_code == "+44"
-    assert find_country("+46").alpha2 == "SE"
-    assert find_country("JP").continent == "Asia"
-    assert find_country("AQ").continent == "Antarctica"
-    assert find_country("AQ").dial_code is None
+    assert search_countries("US") == (expected,)
+    assert search_countries("usa") == (expected,)
+    assert search_countries(" 840 ") == (expected,)
+    assert search_countries("GB")[0].continent == "Europe"
+    assert search_countries("GB")[0].dial_code == "+44"
+    assert search_countries("+46")[0].alpha2 == "SE"
+    assert search_countries("JP")[0].continent == "Asia"
+    assert search_countries("AQ")[0].continent == "Antarctica"
+    assert search_countries("AQ")[0].dial_code is None
 
 
 def test_lookup_by_name_and_whitespace() -> None:
-    assert find_country("  united   states  ").alpha2 == "US"
-    assert find_country("United States of America").alpha2 == "US"
+    assert search_countries("  united   states  ")[0].alpha2 == "US"
+    assert search_countries("United States of America")[0].alpha2 == "US"
 
 
 def test_lookup_by_fuzzy_country_name() -> None:
-    assert find_country("Untied States").alpha2 == "US"
+    matches = search_countries("Untied States")
+
+    assert len(matches) == 249
+    assert matches[0].alpha2 == "US"
 
 
 def test_fuzzy_lookup_matches_single_word_typos_within_country_name() -> None:
-    assert find_country("Untied").alpha2 == "US"
+    assert search_countries("Untied")[0].alpha2 == "US"
 
 
 def test_fuzzy_lookup_matches_partial_country_name() -> None:
-    assert find_country("United").alpha2 == "US"
+    assert search_countries("United")[0].alpha2 == "US"
 
 
-def test_find_country_returns_none_for_empty_query() -> None:
-    assert find_country("") is None
+def test_search_countries_returns_empty_tuple_for_empty_query() -> None:
+    assert search_countries("") == ()
+
+
+def test_search_countries_limits_ranked_matches() -> None:
+    matches = search_countries("Untied States", limit=3)
+
+    assert len(matches) == 3
+    assert matches[0].alpha2 == "US"
+
+
+def test_search_countries_rejects_non_positive_limit() -> None:
+    with pytest.raises(ValueError, match="limit must be positive"):
+        search_countries("US", limit=0)
+
+
+def test_search_countries_returns_all_exact_dial_code_matches() -> None:
+    matches = search_countries("+1")
+
+    assert len(matches) > 1
+    assert {country.dial_code for country in matches} == {"+1"}
 
 
 def test_list_countries_returns_complete_sorted_registry() -> None:
