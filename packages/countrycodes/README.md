@@ -26,30 +26,35 @@ Requires Python 3.11 or newer.
 ```python
 import countrycodes as cc
 
-united_states = cc.search_countries("us")[0]
-print(united_states.alpha3)  # USA
-print(united_states.numeric)  # 840
-print(united_states.dial_code)  # +1
+united_states = cc.get_country("us")
+if united_states is not None:
+    print(united_states.alpha3)  # USA
+    print(united_states.numeric)  # 840
+    print(united_states.dial_code)  # +1
 
-united_kingdom = cc.search_countries("United Kingdom")[0]
-print(united_kingdom.alpha2)  # GB
+fuzzy_match = cc.search_countries("Untied States")[0]
+print(fuzzy_match.alpha2)  # US
 
-typo_tolerant_match = cc.search_countries("Untied States")[0]
-print(typo_tolerant_match.alpha2)  # US
+united_kingdom = cc.get_country("United Kingdom")
+if united_kingdom is not None:
+    print(united_kingdom.alpha2)  # GB
 
 print(len(cc.list_countries()))  # 249
 ```
 
-Lookups accept alpha-2, alpha-3, and numeric codes, dial codes, and display
-names. A display name uses `common_name` when available and otherwise `name`.
-Matching is case-insensitive and ignores surrounding or repeated whitespace.
-If there is no exact match, countries are returned in name similarity order,
-even if the similarity is low. The similarity score combines word-level and
-full-name matches equally. Exact shared dial codes return every matching
-country.
-`list_countries` returns records sorted by alpha-2 code.
-`search_countries` returns a tuple of matches; use `limit` to cap the result count.
-An empty query returns an empty tuple. `dial_code` is the international
+`get_country` returns a country only when the query exactly matches one
+alpha-2, alpha-3, or numeric code, dial code, or display name; it returns
+`None` for no match or an ambiguous query such as a shared dial code.
+`search_countries` also accepts those queries, but ranks fuzzy display-name
+matches when there is no exact match. A display name uses `common_name` when
+available and otherwise `name`. Matching is case-insensitive and ignores
+surrounding or repeated whitespace. When there is no exact match,
+`search_countries` returns countries in name similarity order, even if the
+similarity is low. The similarity score combines word-level and full-name
+matches equally. Exact shared dial codes return every matching country from
+`search_countries`. `list_countries` returns records sorted by alpha-2 code.
+`search_countries` returns a tuple of matches; use `limit` to cap the result
+count. An empty query returns an empty tuple. `dial_code` is the international
 country calling code, not a local area code, and is `None` when no code is
 available. `country_name_similarity(query, country)` returns the best combined
 transposition-aware word and full-name similarity score for the display name

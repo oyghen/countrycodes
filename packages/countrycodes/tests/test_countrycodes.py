@@ -37,6 +37,24 @@ def test_lookup_by_each_code_format() -> None:
     assert cc.search_countries("AQ")[0].dial_code is None
 
 
+def test_get_country_returns_unique_exact_matches_only() -> None:
+    united_states = cc.search_countries("US")[0]
+
+    assert cc.get_country("us") == united_states
+    assert cc.get_country("USA") == united_states
+    assert cc.get_country("840") == united_states
+    assert cc.get_country("  united   states  ") == united_states
+    assert cc.get_country("+46") == cc.search_countries("SE")[0]
+    assert cc.get_country("Taiwan") == cc.search_countries("TW")[0]
+    assert cc.get_country("Untied States") is None
+    assert cc.get_country("not a country") is None
+    assert cc.get_country("") is None
+
+
+def test_get_country_returns_none_for_ambiguous_dial_code() -> None:
+    assert cc.get_country("+1") is None
+
+
 def test_lookup_by_name_and_whitespace() -> None:
     assert cc.search_countries("  united   states  ")[0].alpha2 == "US"
     assert cc.search_countries("Taiwan")[0].alpha2 == "TW"

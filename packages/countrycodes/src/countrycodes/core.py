@@ -1,12 +1,26 @@
 """ISO 3166-1 country lookup API."""
 
-__all__ = ("country_name_similarity", "search_countries")
+__all__ = ("country_name_similarity", "get_country", "search_countries")
 
 
 from collections import defaultdict
 from functools import cache
 
 from countrycodes.country import Countries, Country, list_countries
+
+
+def get_country(query: str) -> Country | None:
+    """Return the country for a unique exact code, dial code, or display name.
+
+    Matching ignores case and surrounding or repeated whitespace. Return
+    ``None`` when the query has no exact match or matches multiple countries.
+    """
+    normalized_query = _normalize(query)
+    if not normalized_query:
+        return None
+
+    matches = _country_index(list_countries()).get(normalized_query, ())
+    return matches[0] if len(matches) == 1 else None
 
 
 def search_countries(query: str, *, limit: int | None = None) -> Countries:
