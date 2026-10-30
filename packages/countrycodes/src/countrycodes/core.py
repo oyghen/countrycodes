@@ -4,7 +4,7 @@ __all__ = ("country_name_similarity", "get_country", "search_countries")
 
 
 from collections import defaultdict
-from functools import cache
+from functools import cache, lru_cache
 
 from countrycodes.country import Countries, Country, list_countries
 
@@ -103,6 +103,7 @@ def _country_name_similarity(query: str, country: Country) -> float:
     return (word_score + full_name_score) / 2
 
 
+@lru_cache(maxsize=4096)
 def _name_similarity(query: str, name: str) -> tuple[float, float]:
     """Return word-level and full-name similarity scores."""
     normalized_name = _normalize(name)
