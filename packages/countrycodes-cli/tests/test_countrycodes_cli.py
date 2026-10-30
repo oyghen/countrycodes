@@ -58,6 +58,13 @@ def test_lookup_command_prints_text() -> None:
     assert "United Kingdom" in result.stdout
 
 
+def test_lookup_shows_dimmed_null_for_missing_dial_code() -> None:
+    result = runner.invoke(app, ["lookup", "AQ"])
+
+    assert result.exit_code == 0
+    assert "NULL" in result.stdout
+
+
 def test_lookup_command_accepts_fuzzy_country_name() -> None:
     result = runner.invoke(app, ["lookup", "Untied States"])
 
@@ -231,3 +238,11 @@ def test_list_text_is_alpha2_sorted_and_numbered() -> None:
         < result.stdout.index("AF")
     )
     assert "249" in result.stdout
+
+
+def test_list_shows_null_for_missing_dial_code() -> None:
+    result = runner.invoke(app, ["list"])
+
+    assert result.exit_code == 0
+    antarctica_row = next(line for line in result.stdout.splitlines() if "AQ" in line)
+    assert "NULL" in antarctica_row

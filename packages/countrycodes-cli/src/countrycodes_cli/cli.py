@@ -112,7 +112,7 @@ def lookup(
                 country.alpha2,
                 country.alpha3,
                 country.numeric,
-                country.dial_code or "",
+                country.dial_code or "[dim]NULL[/dim]",
                 country.continent,
                 country.name,
             )
@@ -163,7 +163,7 @@ def list_countries(
                 country.alpha2,
                 country.alpha3,
                 country.numeric,
-                country.dial_code or "",
+                country.dial_code or "[dim]NULL[/dim]",
                 country.continent,
                 country.name,
             )
