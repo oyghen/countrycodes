@@ -50,7 +50,8 @@ return every matching country.
 `search_countries` returns a tuple of matches; use `limit` to cap the result count.
 An empty query returns an empty tuple. `dial_code` is the international
 country calling code, not a local area code, and is `None` when no code is
-available.
+available. `country_name_similarity(query, country)` returns the best
+name-similarity score as a value from 0 to 1.
 
 ## Data and licenses
 

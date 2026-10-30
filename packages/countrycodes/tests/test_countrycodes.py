@@ -3,8 +3,8 @@
 from importlib import metadata
 from types import ModuleType
 
+import countrycodes as cc
 import pytest
-from countrycodes import Country, list_countries, search_countries
 
 
 def test_project_name(project_name: str, project_pkg: ModuleType) -> None:
@@ -16,7 +16,7 @@ def test_project_version(project_name: str, project_pkg: ModuleType) -> None:
 
 
 def test_lookup_by_each_code_format() -> None:
-    expected = Country(
+    expected = cc.Country(
         alpha2="US",
         alpha3="USA",
         numeric="840",
@@ -26,64 +26,81 @@ def test_lookup_by_each_code_format() -> None:
         dial_code="+1",
     )
 
-    assert search_countries("US") == (expected,)
-    assert search_countries("usa") == (expected,)
-    assert search_countries(" 840 ") == (expected,)
-    assert search_countries("GB")[0].continent == "Europe"
-    assert search_countries("GB")[0].dial_code == "+44"
-    assert search_countries("+46")[0].alpha2 == "SE"
-    assert search_countries("JP")[0].continent == "Asia"
-    assert search_countries("AQ")[0].continent == "Antarctica"
-    assert search_countries("AQ")[0].dial_code is None
+    assert cc.search_countries("US") == (expected,)
+    assert cc.search_countries("usa") == (expected,)
+    assert cc.search_countries(" 840 ") == (expected,)
+    assert cc.search_countries("GB")[0].continent == "Europe"
+    assert cc.search_countries("GB")[0].dial_code == "+44"
+    assert cc.search_countries("+46")[0].alpha2 == "SE"
+    assert cc.search_countries("JP")[0].continent == "Asia"
+    assert cc.search_countries("AQ")[0].continent == "Antarctica"
+    assert cc.search_countries("AQ")[0].dial_code is None
 
 
 def test_lookup_by_name_and_whitespace() -> None:
-    assert search_countries("  united   states  ")[0].alpha2 == "US"
-    assert search_countries("United States of America")[0].alpha2 == "US"
+    assert cc.search_countries("  united   states  ")[0].alpha2 == "US"
+    assert cc.search_countries("United States of America")[0].alpha2 == "US"
 
 
 def test_lookup_by_fuzzy_country_name() -> None:
-    matches = search_countries("Untied States")
+    matches = cc.search_countries("Untied States")
 
     assert len(matches) == 249
     assert matches[0].alpha2 == "US"
 
 
 def test_fuzzy_lookup_matches_single_word_typos_within_country_name() -> None:
-    assert search_countries("Untied")[0].alpha2 == "US"
+    assert cc.search_countries("Untied")[0].alpha2 == "US"
 
 
 def test_fuzzy_lookup_matches_partial_country_name() -> None:
-    assert search_countries("United")[0].alpha2 == "US"
+    assert cc.search_countries("United")[0].alpha2 == "US"
+
+
+def test_fuzzy_lookup_orders_equal_scores_by_alpha2_code() -> None:
+    tied_codes = {"BZ", "BR", "ZM"}
+    matches = cc.search_countries("zzzzzzzz")
+    matched_codes = [
+        country.alpha2 for country in matches if country.alpha2 in tied_codes
+    ]
+
+    assert matched_codes == sorted(tied_codes)
 
 
 def test_search_countries_returns_empty_tuple_for_empty_query() -> None:
-    assert search_countries("") == ()
+    assert cc.search_countries("") == ()
 
 
 def test_search_countries_limits_ranked_matches() -> None:
-    matches = search_countries("Untied States", limit=3)
+    matches = cc.search_countries("Untied States", limit=3)
 
     assert len(matches) == 3
     assert matches[0].alpha2 == "US"
 
 
+def test_country_name_similarity_returns_best_word_score() -> None:
+    united_states = cc.search_countries("US")[0]
+
+    assert cc.country_name_similarity("Untied", united_states) == pytest.approx(5 / 6)
+    assert cc.country_name_similarity("", united_states) == 0.0
+
+
 def test_search_countries_rejects_non_positive_limit() -> None:
     with pytest.raises(ValueError, match="limit must be positive"):
-        search_countries("US", limit=0)
+        cc.search_countries("US", limit=0)
 
 
 def test_search_countries_returns_all_exact_dial_code_matches() -> None:
-    matches = search_countries("+1")
+    matches = cc.search_countries("+1")
 
     assert len(matches) > 1
     assert {country.dial_code for country in matches} == {"+1"}
 
 
 def test_list_countries_returns_complete_sorted_registry() -> None:
-    countries = list_countries()
+    countries = cc.list_countries()
 
-    assert list_countries() is countries
+    assert cc.list_countries() is countries
     assert len(countries) == 249
     assert {country.continent for country in countries} == {
         "Africa",

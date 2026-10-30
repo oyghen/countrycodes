@@ -54,7 +54,9 @@ truncated, the CLI notes that it is showing only the top matches. JSON lookup
 output is a single record for one match or an array for multiple matches. The
 default list is rendered as a table sorted by alpha-2 code, with a row number,
 and JSON list output is an unnumbered array. Country records include the
-international dial code when available.
+international dial code when available. Fuzzy text lookup tables include a
+similarity percentage for each result. Fuzzy matching uses Python's built-in
+`difflib.SequenceMatcher`.
 
 See all options with:
 

@@ -62,7 +62,9 @@ def test_lookup_command_accepts_fuzzy_country_name() -> None:
     result = runner.invoke(app, ["lookup", "Untied States"])
 
     assert result.exit_code == 0
-    assert "United States" in result.stdout
+    assert "US" in result.stdout
+    assert "Similarity" in result.stdout
+    assert "92%" in result.stdout
     assert "Showing only the top 5 matches." in result.stdout
 
 
@@ -154,6 +156,13 @@ def test_lookup_command_prints_json() -> None:
     assert country["numeric"] == "392"
     assert country["dial_code"] == "+81"
     assert country["continent"] == "Asia"
+
+
+def test_exact_lookup_does_not_show_similarity() -> None:
+    result = runner.invoke(app, ["lookup", "GB"])
+
+    assert result.exit_code == 0
+    assert "Similarity" not in result.stdout
 
 
 def test_empty_lookup_reports_error() -> None:
