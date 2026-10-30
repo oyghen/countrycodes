@@ -101,7 +101,7 @@ def lookup(
         table.add_column("Continent")
         table.add_column("Country")
         if is_fuzzy_lookup:
-            table.add_column("Similarity", justify="right", min_width=10, no_wrap=True)
+            table.add_column("Similarity", justify="right", no_wrap=True)
         for country in countries:
             row = (
                 country.alpha2,
@@ -113,7 +113,7 @@ def lookup(
             )
             if is_fuzzy_lookup:
                 score = cc.country_name_similarity(query, country)
-                row += (f"{score:.0%}",)
+                row += (f"{score:.1%}",)
             table.add_row(*row)
         Console().print(table)
         if has_more_matches:

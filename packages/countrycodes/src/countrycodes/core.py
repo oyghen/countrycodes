@@ -16,10 +16,10 @@ def search_countries(query: str, *, limit: int | None = None) -> Countries:
     Queries match ISO alpha-2, alpha-3, and numeric codes, dial codes, and
     common, official, and short country names. Matching ignores case and
     surrounding or repeated whitespace. If there is no exact match, countries
-    are ranked by name similarity, comparing single-word queries with
-    individual name words; equal scores are ordered by alpha-2 code.
-    ``limit`` restricts the number of returned countries; it must be positive
-    when provided. An empty query returns an empty tuple.
+    are ranked by comparing the query with each full country name; equal
+    scores are ordered by alpha-2 code. ``limit`` restricts the number of
+    returned countries; it must be positive when provided. An empty query
+    returns an empty tuple.
     """
     if limit is not None and limit < 1:
         raise ValueError("limit must be positive")
@@ -43,8 +43,7 @@ def search_countries(query: str, *, limit: int | None = None) -> Countries:
             for _, country in sorted(
                 scored_countries,
                 key=lambda match: (
-                    -match[0][0],
-                    -match[0][1],
+                    -match[0],
                     match[1].alpha2,
                 ),
             )
@@ -54,11 +53,11 @@ def search_countries(query: str, *, limit: int | None = None) -> Countries:
 
 
 def country_name_similarity(query: str, country: Country) -> float:
-    """Return the best name-similarity score for a query and country."""
+    """Return the best full-name similarity score for a query and country."""
     normalized_query = _normalize(query)
     if not normalized_query:
         return 0.0
-    return _country_name_similarity(normalized_query, country)[0]
+    return _country_name_similarity(normalized_query, country)
 
 
 def _normalize(value: str) -> str:
@@ -87,27 +86,16 @@ def _country_index(countries: Countries) -> dict[str, Countries]:
     return {key: tuple(matches) for key, matches in index.items()}
 
 
-def _country_name_similarity(query: str, country: Country) -> tuple[float, float]:
+def _country_name_similarity(query: str, country: Country) -> float:
     """Return a country's best similarity score across its names."""
     names = (country.name, country.official_name, country.common_name)
     return max(
         (_name_similarity(query, name) for name in names if name is not None),
-        default=(0.0, 0.0),
+        default=0.0,
     )
 
 
-def _name_similarity(query: str, name: str) -> tuple[float, float]:
-    """Score a query against a full name and its words, preferring word matches."""
+def _name_similarity(query: str, name: str) -> float:
+    """Score a query against the complete country name."""
     normalized_name = _normalize(name)
-    full_name_score = SequenceMatcher(None, query, normalized_name).ratio()
-    if " " in query:
-        return full_name_score, full_name_score
-
-    word_score = max(
-        (
-            SequenceMatcher(None, query, word).ratio()
-            for word in normalized_name.split()
-        ),
-        default=full_name_score,
-    )
-    return word_score, full_name_score
+    return SequenceMatcher(None, query, normalized_name).ratio()

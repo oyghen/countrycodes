@@ -49,12 +49,16 @@ def test_lookup_by_fuzzy_country_name() -> None:
     assert matches[0].alpha2 == "US"
 
 
-def test_fuzzy_lookup_matches_single_word_typos_within_country_name() -> None:
-    assert cc.search_countries("Untied")[0].alpha2 == "US"
+def test_fuzzy_lookup_compares_query_with_full_country_names() -> None:
+    matches = cc.search_countries("Untied")
+
+    assert matches[0].alpha2 == "NE"
+    united_states = cc.search_countries("US")[0]
+    assert cc.country_name_similarity("Untied", united_states) == pytest.approx(10 / 19)
 
 
-def test_fuzzy_lookup_matches_partial_country_name() -> None:
-    assert cc.search_countries("United")[0].alpha2 == "US"
+def test_fuzzy_lookup_matches_multiword_typos() -> None:
+    assert cc.search_countries("Untied States")[0].alpha2 == "US"
 
 
 def test_fuzzy_lookup_orders_equal_scores_by_alpha2_code() -> None:
@@ -78,10 +82,10 @@ def test_search_countries_limits_ranked_matches() -> None:
     assert matches[0].alpha2 == "US"
 
 
-def test_country_name_similarity_returns_best_word_score() -> None:
+def test_country_name_similarity_returns_best_full_name_score() -> None:
     united_states = cc.search_countries("US")[0]
 
-    assert cc.country_name_similarity("Untied", united_states) == pytest.approx(5 / 6)
+    assert cc.country_name_similarity("Untied", united_states) == pytest.approx(10 / 19)
     assert cc.country_name_similarity("", united_states) == 0.0
 
 

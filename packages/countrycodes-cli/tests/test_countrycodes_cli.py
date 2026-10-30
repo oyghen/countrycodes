@@ -64,8 +64,18 @@ def test_lookup_command_accepts_fuzzy_country_name() -> None:
     assert result.exit_code == 0
     assert "US" in result.stdout
     assert "Similarity" in result.stdout
-    assert "92%" in result.stdout
+    assert "92.3%" in result.stdout
     assert "Showing only the top 5 matches." in result.stdout
+
+
+def test_fuzzy_lookup_displays_full_name_similarity() -> None:
+    result = runner.invoke(app, ["lookup", "Untied", "--limit", "3"])
+
+    assert result.exit_code == 0
+    assert "Similarity" in result.stdout
+    assert "Word score" not in result.stdout
+    assert "54.5%" in result.stdout
+    assert "52.6%" in result.stdout
 
 
 def test_fuzzy_lookup_json_returns_top_five_matches() -> None:
@@ -162,7 +172,7 @@ def test_exact_lookup_does_not_show_similarity() -> None:
     result = runner.invoke(app, ["lookup", "GB"])
 
     assert result.exit_code == 0
-    assert "Similarity" not in result.stdout
+    assert "score" not in result.stdout
 
 
 def test_empty_lookup_reports_error() -> None:
