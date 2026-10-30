@@ -182,6 +182,14 @@ def test_empty_lookup_reports_error() -> None:
     assert "No country matches ''" in result.output
 
 
+def test_unknown_dial_code_with_zero_similarity_reports_no_match() -> None:
+    result = runner.invoke(app, ["lookup", "+342"])
+
+    assert result.exit_code == 1
+    assert "No country matches '+342'" in result.output
+    assert "Similarity" not in result.output
+
+
 def test_console_entry_point_lists_countries() -> None:
     result = subprocess.run(
         ["countrycodes", "list", "--format", "json"],

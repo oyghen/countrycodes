@@ -61,7 +61,7 @@ def lookup(
     else:
         matches = cc.search_countries(query, limit=limit + 1)
         if not matches:
-            typer.echo(f"No country matches {query!r}", err=True)
+            typer.secho(f"No country matches {query!r}", fg=typer.colors.RED, err=True)
             raise typer.Exit(1)
         has_more_matches = len(matches) > limit
         countries = matches[:limit]
@@ -79,9 +79,14 @@ def lookup(
             )
             if value is not None
         }
+        if is_fuzzy_lookup and all(
+            cc.country_name_similarity(query, country) == 0.0 for country in countries
+        ):
+            typer.secho(f"No country matches {query!r}", fg=typer.colors.RED, err=True)
+            raise typer.Exit(1)
 
     if not countries:
-        typer.echo(f"No country matches {query!r}", err=True)
+        typer.secho(f"No country matches {query!r}", fg=typer.colors.RED, err=True)
         raise typer.Exit(1)
 
     if output_format == "json":
