@@ -3,14 +3,7 @@
 from importlib import metadata
 from types import ModuleType
 
-import pytest
-from countrycodes import (
-    Country,
-    CountryNotFoundError,
-    find_country,
-    get_country,
-    list_countries,
-)
+from countrycodes import Country, find_country, list_countries
 
 
 def test_project_name(project_name: str, project_pkg: ModuleType) -> None:
@@ -32,36 +25,28 @@ def test_lookup_by_each_code_format() -> None:
         dial_code="+1",
     )
 
-    assert get_country("US") == expected
-    assert get_country("usa") == expected
-    assert get_country(" 840 ") == expected
-    assert get_country("GB").continent == "Europe"
-    assert get_country("GB").dial_code == "+44"
-    assert get_country("+46").alpha2 == "SE"
-    assert get_country("JP").continent == "Asia"
-    assert get_country("AQ").continent == "Antarctica"
-    assert get_country("AQ").dial_code is None
+    assert find_country("US") == expected
+    assert find_country("usa") == expected
+    assert find_country(" 840 ") == expected
+    assert find_country("GB").continent == "Europe"
+    assert find_country("GB").dial_code == "+44"
+    assert find_country("+46").alpha2 == "SE"
+    assert find_country("JP").continent == "Asia"
+    assert find_country("AQ").continent == "Antarctica"
+    assert find_country("AQ").dial_code is None
 
 
 def test_lookup_by_name_and_whitespace() -> None:
-    assert get_country("  united   states  ").alpha2 == "US"
-    assert get_country("United States of America").alpha2 == "US"
+    assert find_country("  united   states  ").alpha2 == "US"
+    assert find_country("United States of America").alpha2 == "US"
 
 
 def test_lookup_by_fuzzy_country_name() -> None:
-    assert get_country("Untied States").alpha2 == "US"
-    fuzzy_match = find_country("Untied States")
-    assert fuzzy_match is not None
-    assert fuzzy_match.alpha2 == "US"
+    assert find_country("Untied States").alpha2 == "US"
 
 
 def test_find_country_returns_none_for_unknown_query() -> None:
     assert find_country("Atlantis") is None
-
-
-def test_get_country_raises_for_unknown_query() -> None:
-    with pytest.raises(CountryNotFoundError, match="Atlantis"):
-        get_country("Atlantis")
 
 
 def test_list_countries_returns_complete_sorted_registry() -> None:

@@ -49,11 +49,11 @@ def lookup(
     is_dial_code_lookup = bool(countries)
 
     if not countries:
-        try:
-            countries = (cc.get_country(query),)
-        except cc.CountryNotFoundError as error:
-            typer.echo(str(error), err=True)
-            raise typer.Exit(1) from error
+        country = cc.find_country(query)
+        if country is None:
+            typer.echo(f"No country matches {query!r}", err=True)
+            raise typer.Exit(1)
+        countries = (country,)
 
     if output_format == "json":
         result = (

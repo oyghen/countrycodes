@@ -1,6 +1,6 @@
 """ISO 3166-1 country lookup API."""
 
-__all__ = ("CountryNotFoundError", "find_country", "get_country")
+__all__ = ("find_country",)
 
 
 from collections import defaultdict
@@ -8,10 +8,6 @@ from difflib import SequenceMatcher
 from functools import cache
 
 from countrycodes.country import Countries, Country, list_countries
-
-
-class CountryNotFoundError(LookupError):
-    """Raised when a country query does not match the registry."""
 
 
 def find_country(query: str) -> Country | None:
@@ -31,14 +27,6 @@ def find_country(query: str) -> Country | None:
     if unique_matches:
         return unique_matches[0]
     return _find_fuzzy_country(query, countries)
-
-
-def get_country(query: str) -> Country:
-    """Return the matching country or raise ``CountryNotFoundError``."""
-    country = find_country(query)
-    if country is None:
-        raise CountryNotFoundError(f"No country matches {query!r}")
-    return country
 
 
 def _normalize(value: str) -> str:

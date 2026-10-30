@@ -26,7 +26,7 @@ Requires Python 3.11 or newer.
 ```python
 import countrycodes as cc
 
-united_states = cc.get_country("us")
+united_states = cc.find_country("us")
 print(united_states.alpha3)  # USA
 print(united_states.numeric)  # 840
 print(united_states.dial_code)  # +1
@@ -39,9 +39,7 @@ print(typo_tolerant_match.alpha2)  # US
 
 print(len(cc.list_countries()))  # 249
 
-try:
-    cc.get_country("Atlantis")
-except cc.CountryNotFoundError:
+if cc.find_country("Atlantis") is None:
     print("No matching country")
 ```
 
@@ -51,9 +49,9 @@ whitespace. If there is no exact match, a sufficiently similar country name
 is matched as a typo-tolerant fallback. A dial code shared by multiple
 countries is ambiguous and raises `ValueError`.
 `list_countries` returns records sorted by alpha-2 code.
-`find_country` returns `None` when there is no match; `get_country` raises
-`CountryNotFoundError`. `dial_code` is the international country calling code,
-not a local area code, and is `None` when no code is available.
+`find_country` returns `None` when no country matches. `dial_code` is the
+international country calling code, not a local area code, and is `None` when
+no code is available.
 
 ## Data and licenses
 
