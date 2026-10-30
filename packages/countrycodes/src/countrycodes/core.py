@@ -11,12 +11,14 @@ from countrycodes.country import Countries, Country, list_countries
 
 
 def find_country(query: str) -> Country | None:
-    """Return the matching country, or ``None`` if the query is not found.
+    """Return an exact or best fuzzy match; return ``None`` for an empty query.
 
     Queries match ISO alpha-2, alpha-3, and numeric codes, dial codes, and
     common, official, and short country names. Matching ignores case and
-    surrounding or repeated whitespace. If there is no exact match, a
-    sufficiently similar country name is matched instead.
+    surrounding or repeated whitespace. If there is no exact match, the
+    country with the most similar name is matched instead. Single-word
+    queries are compared with individual name words; equal best matches raise
+    ``ValueError``.
     """
     countries = list_countries()
     index = _country_index(countries)
@@ -40,17 +42,17 @@ def _find_fuzzy_country(query: str, countries: Countries) -> Country | None:
     if not normalized_query:
         return None
 
-    best_score = 0.8
+    best_score = (0.0, 0.0)
     best_matches: set[Country] = set()
     for country in countries:
         names = (country.name, country.official_name, country.common_name)
         score = max(
             (
-                SequenceMatcher(None, normalized_query, _normalize(name)).ratio()
+                _name_similarity(normalized_query, name)
                 for name in names
                 if name is not None
             ),
-            default=0.0,
+            default=(0.0, 0.0),
         )
         if score > best_score:
             best_score = score
@@ -61,6 +63,23 @@ def _find_fuzzy_country(query: str, countries: Countries) -> Country | None:
     if len(best_matches) > 1:
         raise ValueError(f"Country query is ambiguous: {query!r}")
     return next(iter(best_matches), None)
+
+
+def _name_similarity(query: str, name: str) -> tuple[float, float]:
+    """Score a query against a full name and its words, preferring word matches."""
+    normalized_name = _normalize(name)
+    full_name_score = SequenceMatcher(None, query, normalized_name).ratio()
+    if " " in query:
+        return full_name_score, full_name_score
+
+    word_score = max(
+        (
+            SequenceMatcher(None, query, word).ratio()
+            for word in normalized_name.split()
+        ),
+        default=full_name_score,
+    )
+    return word_score, full_name_score
 
 
 @cache

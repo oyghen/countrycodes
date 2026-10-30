@@ -45,8 +45,16 @@ def test_lookup_by_fuzzy_country_name() -> None:
     assert find_country("Untied States").alpha2 == "US"
 
 
-def test_find_country_returns_none_for_unknown_query() -> None:
-    assert find_country("Atlantis") is None
+def test_fuzzy_lookup_matches_single_word_typos_within_country_name() -> None:
+    assert find_country("Untied").alpha2 == "US"
+
+
+def test_fuzzy_lookup_matches_partial_country_name() -> None:
+    assert find_country("United").alpha2 == "US"
+
+
+def test_find_country_returns_none_for_empty_query() -> None:
+    assert find_country("") is None
 
 
 def test_list_countries_returns_complete_sorted_registry() -> None:

@@ -38,18 +38,16 @@ typo_tolerant_match = cc.find_country("Untied States")
 print(typo_tolerant_match.alpha2)  # US
 
 print(len(cc.list_countries()))  # 249
-
-if cc.find_country("Atlantis") is None:
-    print("No matching country")
 ```
 
 Lookups accept alpha-2, alpha-3, and numeric codes, dial codes, and country
 names. Matching is case-insensitive and ignores surrounding or repeated
-whitespace. If there is no exact match, a sufficiently similar country name
-is matched as a typo-tolerant fallback. A dial code shared by multiple
-countries is ambiguous and raises `ValueError`.
+whitespace. If there is no exact match, the country with the most similar
+name is returned, even if the similarity is low. Single-word queries are
+compared with individual words in country names. Equal best matches and dial
+codes shared by multiple countries raise `ValueError`.
 `list_countries` returns records sorted by alpha-2 code.
-`find_country` returns `None` when no country matches. `dial_code` is the
+`find_country` returns `None` for an empty query. `dial_code` is the
 international country calling code, not a local area code, and is `None` when
 no code is available.
 

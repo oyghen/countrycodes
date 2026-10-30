@@ -119,11 +119,11 @@ def test_lookup_command_prints_json() -> None:
     assert country["continent"] == "Asia"
 
 
-def test_unknown_lookup_reports_error() -> None:
-    result = runner.invoke(app, ["lookup", "Atlantis"])
+def test_empty_lookup_reports_error() -> None:
+    result = runner.invoke(app, ["lookup", ""])
 
     assert result.exit_code == 1
-    assert "No country matches 'Atlantis'" in result.output
+    assert "No country matches ''" in result.output
 
 
 def test_console_entry_point_lists_countries() -> None:
