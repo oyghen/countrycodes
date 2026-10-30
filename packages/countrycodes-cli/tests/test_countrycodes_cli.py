@@ -6,10 +6,15 @@ from importlib import metadata
 from types import ModuleType
 
 import countrycodes
+import pytest
 from countrycodes_cli.cli import app
 from typer.testing import CliRunner
 
-runner = CliRunner()
+
+@pytest.fixture
+def runner() -> CliRunner:
+    """Return a fresh CLI runner for each test."""
+    return CliRunner()
 
 
 def test_project_name(project_name: str, project_pkg: ModuleType) -> None:
@@ -24,14 +29,14 @@ def test_library_name() -> None:
     assert countrycodes.__name__ == "countrycodes"
 
 
-def test_version_command_prints_library_version() -> None:
+def test_version_command_prints_library_version(runner: CliRunner) -> None:
     result = runner.invoke(app, ["--version"])
 
     assert result.exit_code == 0
     assert result.stdout.strip() == metadata.version("countrycodes")
 
 
-def test_no_command_prints_help() -> None:
+def test_no_command_prints_help(runner: CliRunner) -> None:
     result = runner.invoke(app)
 
     assert result.exit_code == 2
@@ -39,7 +44,7 @@ def test_no_command_prints_help() -> None:
     assert "Commands" in result.stdout
 
 
-def test_lookup_command_prints_text() -> None:
+def test_lookup_command_prints_text(runner: CliRunner) -> None:
     result = runner.invoke(app, ["lookup", "gb"])
 
     assert result.exit_code == 0
@@ -58,7 +63,7 @@ def test_lookup_command_prints_text() -> None:
     assert "United Kingdom" in result.stdout
 
 
-def test_lookup_displays_common_name() -> None:
+def test_lookup_displays_common_name(runner: CliRunner) -> None:
     result = runner.invoke(app, ["lookup", "TW"])
 
     assert result.exit_code == 0
@@ -66,14 +71,14 @@ def test_lookup_displays_common_name() -> None:
     assert "Province of China" not in result.stdout
 
 
-def test_lookup_shows_dimmed_null_for_missing_dial_code() -> None:
+def test_lookup_shows_dimmed_null_for_missing_dial_code(runner: CliRunner) -> None:
     result = runner.invoke(app, ["lookup", "AQ"])
 
     assert result.exit_code == 0
     assert "NULL" in result.stdout
 
 
-def test_lookup_command_accepts_fuzzy_country_name() -> None:
+def test_lookup_command_accepts_fuzzy_country_name(runner: CliRunner) -> None:
     result = runner.invoke(app, ["lookup", "Untied States"])
 
     assert result.exit_code == 0
@@ -83,7 +88,7 @@ def test_lookup_command_accepts_fuzzy_country_name() -> None:
     assert "Showing only the top 5 matches." in result.stdout
 
 
-def test_fuzzy_lookup_displays_combined_similarity() -> None:
+def test_fuzzy_lookup_displays_combined_similarity(runner: CliRunner) -> None:
     result = runner.invoke(app, ["lookup", "Untied", "--limit", "3"])
 
     assert result.exit_code == 0
@@ -93,7 +98,9 @@ def test_fuzzy_lookup_displays_combined_similarity() -> None:
     assert "59.5%" in result.stdout
 
 
-def test_lookup_united_includes_united_kingdom_and_arab_emirates() -> None:
+def test_lookup_united_includes_united_kingdom_and_arab_emirates(
+    runner: CliRunner,
+) -> None:
     result = runner.invoke(app, ["lookup", "United", "--limit", "3"])
 
     assert result.exit_code == 0
@@ -101,7 +108,7 @@ def test_lookup_united_includes_united_kingdom_and_arab_emirates() -> None:
     assert "AE" in result.stdout
 
 
-def test_fuzzy_lookup_json_returns_top_five_matches() -> None:
+def test_fuzzy_lookup_json_returns_top_five_matches(runner: CliRunner) -> None:
     result = runner.invoke(app, ["lookup", "Untied States", "--format", "json"])
 
     assert result.exit_code == 0
@@ -110,7 +117,7 @@ def test_fuzzy_lookup_json_returns_top_five_matches() -> None:
     assert countries[0]["alpha2"] == "US"
 
 
-def test_fuzzy_lookup_limit_can_be_customized() -> None:
+def test_fuzzy_lookup_limit_can_be_customized(runner: CliRunner) -> None:
     result = runner.invoke(
         app, ["lookup", "Untied States", "--limit", "2", "--format", "json"]
     )
@@ -121,7 +128,7 @@ def test_fuzzy_lookup_limit_can_be_customized() -> None:
     assert countries[0]["alpha2"] == "US"
 
 
-def test_lookup_command_accepts_dial_code() -> None:
+def test_lookup_command_accepts_dial_code(runner: CliRunner) -> None:
     result = runner.invoke(app, ["lookup", "+1"])
 
     assert result.exit_code == 0
@@ -141,7 +148,9 @@ def test_lookup_command_accepts_dial_code() -> None:
     assert "Showing only the top 5 matches." in result.stdout
 
 
-def test_lookup_command_returns_all_dial_code_matches_as_json() -> None:
+def test_lookup_command_returns_all_dial_code_matches_as_json(
+    runner: CliRunner,
+) -> None:
     result = runner.invoke(app, ["lookup", "+1", "--limit", "50", "--format", "json"])
 
     assert result.exit_code == 0
@@ -155,7 +164,7 @@ def test_lookup_command_returns_all_dial_code_matches_as_json() -> None:
     }
 
 
-def test_dial_code_lookup_respects_limit() -> None:
+def test_dial_code_lookup_respects_limit(runner: CliRunner) -> None:
     result = runner.invoke(app, ["lookup", "+1", "--limit", "2", "--format", "json"])
 
     assert result.exit_code == 0
@@ -164,13 +173,13 @@ def test_dial_code_lookup_respects_limit() -> None:
     assert {country["dial_code"] for country in countries} == {"+1"}
 
 
-def test_lookup_rejects_non_positive_limit() -> None:
+def test_lookup_rejects_non_positive_limit(runner: CliRunner) -> None:
     result = runner.invoke(app, ["lookup", "US", "--limit", "0"])
 
     assert result.exit_code != 0
 
 
-def test_lookup_command_accepts_unique_dial_code() -> None:
+def test_lookup_command_accepts_unique_dial_code(runner: CliRunner) -> None:
     result = runner.invoke(app, ["lookup", "+81"])
 
     assert result.exit_code == 0
@@ -178,7 +187,7 @@ def test_lookup_command_accepts_unique_dial_code() -> None:
     assert "+81" in result.stdout
 
 
-def test_lookup_command_prints_json() -> None:
+def test_lookup_command_prints_json(runner: CliRunner) -> None:
     result = runner.invoke(app, ["lookup", "JP", "--format", "json"])
 
     assert result.exit_code == 0
@@ -191,21 +200,23 @@ def test_lookup_command_prints_json() -> None:
     assert country["continent"] == "Asia"
 
 
-def test_exact_lookup_does_not_show_similarity() -> None:
+def test_exact_lookup_does_not_show_similarity(runner: CliRunner) -> None:
     result = runner.invoke(app, ["lookup", "GB"])
 
     assert result.exit_code == 0
     assert "score" not in result.stdout
 
 
-def test_empty_lookup_reports_error() -> None:
+def test_empty_lookup_reports_error(runner: CliRunner) -> None:
     result = runner.invoke(app, ["lookup", ""])
 
     assert result.exit_code == 1
     assert "No country matches ''" in result.output
 
 
-def test_unknown_dial_code_with_zero_similarity_reports_no_match() -> None:
+def test_unknown_dial_code_with_zero_similarity_reports_no_match(
+    runner: CliRunner,
+) -> None:
     result = runner.invoke(app, ["lookup", "+342"])
 
     assert result.exit_code == 1
@@ -234,7 +245,7 @@ def test_console_entry_point_lists_countries() -> None:
     )
 
 
-def test_list_text_is_alpha2_sorted_and_numbered() -> None:
+def test_list_text_is_alpha2_sorted_and_numbered(runner: CliRunner) -> None:
     result = runner.invoke(app, ["list"])
 
     assert result.exit_code == 0
@@ -256,7 +267,7 @@ def test_list_text_is_alpha2_sorted_and_numbered() -> None:
     assert "249" in result.stdout
 
 
-def test_list_shows_null_for_missing_dial_code() -> None:
+def test_list_shows_null_for_missing_dial_code(runner: CliRunner) -> None:
     result = runner.invoke(app, ["list"])
 
     assert result.exit_code == 0
@@ -264,7 +275,7 @@ def test_list_shows_null_for_missing_dial_code() -> None:
     assert "NULL" in antarctica_row
 
 
-def test_list_displays_common_name() -> None:
+def test_list_displays_common_name(runner: CliRunner) -> None:
     result = runner.invoke(app, ["list"])
 
     assert result.exit_code == 0
