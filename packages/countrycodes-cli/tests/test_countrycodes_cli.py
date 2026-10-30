@@ -28,15 +28,15 @@ def test_version_command_prints_library_version() -> None:
     result = runner.invoke(app, ["--version"])
 
     assert result.exit_code == 0
-    assert result.stdout.strip() == f"countrycodes {metadata.version('countrycodes')}"
+    assert result.stdout.strip() == metadata.version("countrycodes")
 
 
-def test_no_command_prints_ready_message() -> None:
+def test_no_command_prints_help() -> None:
     result = runner.invoke(app)
 
-    assert result.exit_code == 0
-    assert "countrycodes" in result.stdout
-    assert "ready. See --help for usage." in result.stdout
+    assert result.exit_code == 2
+    assert "Usage:" in result.stdout
+    assert "Commands" in result.stdout
 
 
 def test_lookup_command_prints_text() -> None:

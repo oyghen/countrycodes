@@ -9,22 +9,17 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
-app = typer.Typer(add_completion=False)
+app = typer.Typer(add_completion=False, no_args_is_help=True)
 
 
 @app.callback(invoke_without_command=True)
 def main(
-    ctx: typer.Context,
-    version: bool = typer.Option(False, "--version", help="Show version and exit."),
+    version: Annotated[
+        bool, typer.Option("--version", is_eager=True, help="Show version and exit.")
+    ] = False,
 ) -> None:
-    pkg_name = cc.__name__
-    pkg_version = typer.style(cc.__version__, fg=typer.colors.CYAN)
-
     if version:
-        typer.echo(f"{pkg_name} {pkg_version}")
-        raise typer.Exit()
-    if ctx.invoked_subcommand is None:
-        typer.echo(f"{pkg_name} {pkg_version} ready. See --help for usage.")
+        typer.echo(cc.__version__)
         raise typer.Exit()
 
 
@@ -123,11 +118,6 @@ def lookup(
             Console().print(f"[dim]Showing only the top {limit} matches.[/dim]")
 
 
-def _normalize_query(value: str) -> str:
-    """Normalize text using the same whitespace and case rules as the library."""
-    return " ".join(value.casefold().split())
-
-
 @app.command(name="list")
 def list_countries(
     output_format: Annotated[
@@ -166,3 +156,8 @@ def list_countries(
                 country.display_name,
             )
         Console().print(table)
+
+
+def _normalize_query(value: str) -> str:
+    """Normalize text using the same whitespace and case rules as the library."""
+    return " ".join(value.casefold().split())
