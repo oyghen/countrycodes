@@ -55,8 +55,8 @@ output is a single record for one match or an array for multiple matches. The
 default list is rendered as a table sorted by alpha-2 code, with a row number,
 and JSON list output is an unnumbered array. Country records include the
 international dial code when available. Fuzzy text lookup tables include a
-full-country-name similarity percentage for each result. Fuzzy matching uses
-Python's built-in `difflib.SequenceMatcher`.
+combined word-level and full displayed-name similarity percentage for each
+result. Fuzzy matching uses transposition-aware edit-distance scoring.
 
 See all options with:
 

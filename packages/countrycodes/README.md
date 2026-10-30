@@ -43,16 +43,16 @@ print(len(cc.list_countries()))  # 249
 Lookups accept alpha-2, alpha-3, and numeric codes, dial codes, and country
 names. Matching is case-insensitive and ignores surrounding or repeated
 whitespace. If there is no exact match, countries are returned in name
-similarity order, even if the similarity is low. Single-word queries are
-compared with individual words in country names. Exact shared dial codes
-return every matching country.
+similarity order, even if the similarity is low. The similarity score combines
+word-level and full-name matches equally. Exact shared dial codes return every
+matching country.
 `list_countries` returns records sorted by alpha-2 code.
 `search_countries` returns a tuple of matches; use `limit` to cap the result count.
 An empty query returns an empty tuple. `dial_code` is the international
 country calling code, not a local area code, and is `None` when no code is
-available. Fuzzy matching compares the query with complete country names.
-`country_name_similarity(query, country)` returns the best full-name similarity
-score as a value from 0 to 1.
+available. `country_name_similarity(query, country)` returns the best combined
+transposition-aware word and full-name similarity score for the displayed
+country name as a value from 0 to 1.
 
 ## Data and licenses
 

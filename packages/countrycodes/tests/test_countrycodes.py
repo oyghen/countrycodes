@@ -49,16 +49,43 @@ def test_lookup_by_fuzzy_country_name() -> None:
     assert matches[0].alpha2 == "US"
 
 
-def test_fuzzy_lookup_compares_query_with_full_country_names() -> None:
+def test_fuzzy_lookup_combines_word_and_full_name_scores() -> None:
     matches = cc.search_countries("Untied")
 
-    assert matches[0].alpha2 == "NE"
+    assert matches[0].alpha2 == "US"
     united_states = cc.search_countries("US")[0]
-    assert cc.country_name_similarity("Untied", united_states) == pytest.approx(10 / 19)
+    assert cc.country_name_similarity("Untied", united_states) == pytest.approx(
+        (5 / 6 + 5 / 13) / 2
+    )
+
+
+def test_fuzzy_similarity_prefers_transposed_word_over_partial_overlap() -> None:
+    united_states = cc.search_countries("US")[0]
+    niger = cc.search_countries("NE")[0]
+
+    assert cc.country_name_similarity("Untied", united_states) > (
+        cc.country_name_similarity("Untied", niger)
+    )
+    assert cc.search_countries("Untied")[0].alpha2 == "US"
 
 
 def test_fuzzy_lookup_matches_multiword_typos() -> None:
     assert cc.search_countries("Untied States")[0].alpha2 == "US"
+
+
+def test_single_word_query_returns_names_containing_the_word() -> None:
+    matches = cc.search_countries("United", limit=3)
+
+    assert tuple(country.alpha2 for country in matches) == ("US", "GB", "AE")
+
+
+def test_fuzzy_similarity_uses_displayed_name_not_official_name() -> None:
+    mexico = cc.search_countries("MX")[0]
+    tanzania = cc.search_countries("TZ")[0]
+
+    assert cc.country_name_similarity("United", mexico) < cc.country_name_similarity(
+        "United", tanzania
+    )
 
 
 def test_fuzzy_lookup_orders_equal_scores_by_alpha2_code() -> None:
@@ -82,10 +109,12 @@ def test_search_countries_limits_ranked_matches() -> None:
     assert matches[0].alpha2 == "US"
 
 
-def test_country_name_similarity_returns_best_full_name_score() -> None:
+def test_country_name_similarity_returns_combined_score() -> None:
     united_states = cc.search_countries("US")[0]
 
-    assert cc.country_name_similarity("Untied", united_states) == pytest.approx(10 / 19)
+    assert cc.country_name_similarity("Untied", united_states) == pytest.approx(
+        (5 / 6 + 5 / 13) / 2
+    )
     assert cc.country_name_similarity("", united_states) == 0.0
 
 
