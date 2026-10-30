@@ -5,13 +5,14 @@ __all__ = (
     "Country",
     "Countries",
     "country_name_similarity",
+    "get_country",
     "search_countries",
     "list_countries",
 )
 
 from importlib import metadata
 
-from countrycodes.core import country_name_similarity, search_countries
+from countrycodes.core import country_name_similarity, get_country, search_countries
 from countrycodes.country import Countries, Country, list_countries
 
 __version__ = metadata.version(__name__)
