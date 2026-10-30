@@ -38,12 +38,12 @@ wheels = [
 
 [[package]]
 name = "countrycodes"
-version = "0.1.0rc3"
+version = "0.1.0rc4"
 source = { editable = "packages/countrycodes" }
 
 [[package]]
 name = "countrycodes-cli"
-version = "0.1.0rc3"
+version = "0.1.0rc4"
 source = { editable = "packages/countrycodes-cli" }
 dependencies = [
     { name = "countrycodes" },
@@ -60,7 +60,7 @@ requires-dist = [
 
 [[package]]
 name = "countrycodes-workspace"
-version = "0.1.0rc3"
+version = "0.1.0rc4"
 source = { virtual = "." }
 
 [package.dev-dependencies]
