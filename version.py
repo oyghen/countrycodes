@@ -146,7 +146,10 @@ def refresh_lockfile() -> None:
 def commit_bump(version: str) -> None:
     """Stage changed version files and commit the release bump."""
     prefix = typer.style("Created commit", fg=typer.colors.GREEN, bold=True)
-    message = f"chore(release): bump version to v{version}"
+    message = (
+        f"chore(release): bump version to v{version}\n\n"
+        "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+    )
 
     files = (ROOT_PYPROJECT, LIB_PYPROJECT, CLI_PYPROJECT, ROOT / "uv.lock")
     for file_name in files:
